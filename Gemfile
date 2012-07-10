@@ -15,3 +15,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'dm-searcher', git: 'https://github.com/towerhe/dm-searcher'
