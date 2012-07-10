@@ -1,5 +1,7 @@
+require 'data_mapper'
 require 'confstruct'
 require 'jolokia'
+require 'sys/filesystem'
 
 require 'dcm4chee/engine'
 require 'dcm4chee/content_edit_service'
