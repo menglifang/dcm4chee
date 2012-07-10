@@ -1,4 +1,33 @@
-require "dcm4chee/engine"
+require 'confstruct'
+require 'jolokia'
+
+require 'dcm4chee/engine'
+require 'dcm4chee/content_edit_service'
+require 'dcm4chee/file_system_management'
 
 module Dcm4chee
+  class << self
+    def jolokia
+      @jolokia ||= ::Jolokia.new(url: config.jolokia_url)
+    end
+
+    def config
+      @config ||= Confstruct::Configuration.new
+    end
+
+    def configure(&block)
+      config.configure(&block)
+    end
+
+    def content_edit_service
+      @content_edit_service ||= Dcm4chee::ContentEditService.new(jolokia)
+    end
+
+    def file_system_management
+      @file_system_management ||= Dcm4chee::FileSystemManagement.new(jolokia)
+    end
+  end
 end
+
+require 'dcm4chee/dicom_object'
+require 'dcm4chee/trashable'
