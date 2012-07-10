@@ -7,13 +7,19 @@ require "dcm4chee/version"
 Gem::Specification.new do |s|
   s.name        = "dcm4chee"
   s.version     = Dcm4chee::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Dcm4chee."
-  s.description = "TODO: Description of Dcm4chee."
+  s.authors     = ["Tower He"]
+  s.email       = ["towerhe@gmail.com"]
+  s.homepage    = "https://github.com/menglifang/dcm4chee"
+  s.summary     = "Providing RESTful APIs for dcm4chee."
+  s.description = "Providing RESTful APIs for dcm4chee."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files         = `git ls-files`.split($\)
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ["lib"]
 
   s.add_dependency "rails", "~> 3.2.6"
+  s.add_dependency "dm-sqlite-adapter", "~> 1.2.0"
+  s.add_dependency "confstruct", "~> 0.2.3"
+  s.add_dependency "virtus", "~> 0.5.1"
+  s.add_dependency "dicom", "~> 0.9.3"
 end
