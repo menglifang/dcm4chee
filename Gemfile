@@ -17,3 +17,19 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'dm-searcher', git: 'https://github.com/towerhe/dm-searcher'
+
+group :development, :test do
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'konacha'
+end
+
+group :test do
+  gem 'ffaker'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'shoulda-matchers'
+  gem 'json_spec'
+  gem 'fivemat'
+end
