@@ -15,7 +15,7 @@ module Dcm4chee
         let(:file_system) { create(:file_system, path: 'archive') }
 
         before(:all) do
-          Dcm4chee.configure { home nil }
+          Dcm4chee.configure { server_home nil }
         end
 
         it 'raises missing the dir of dcm4chee error' do
@@ -25,7 +25,7 @@ module Dcm4chee
 
       context 'when the dir of dcm4chee is set' do
         before(:all) do
-          Dcm4chee.configure { home '/tmp' }
+          Dcm4chee.configure { server_home '/tmp' }
         end
 
         context 'and given a relative path' do

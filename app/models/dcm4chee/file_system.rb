@@ -20,15 +20,15 @@ module Dcm4chee
     has n, :dicom_files, 'Dcm4chee::DicomFile'
     has n, :trashed_dicom_files, 'Dcm4chee::TrashedDicomFile'
 
-    # 检测配置的文件系统路径是相对路径还是绝对路径，相对路径默认指向`$S2_PACS_SERV_HOME/server/default`
+    # 检测配置的文件系统路径是相对路径还是绝对路径，相对路径默认指向`#{Dcm4chee.config.server_home}/server/default`
     def path
       p = self[:path]
 
       return p if p.start_with?('/')
 
-      raise 'Home of dcm4chee must be set' unless Dcm4chee.config.home
+      raise 'Home of dcm4chee must be set' unless Dcm4chee.config.server_home
 
-      File.join(Dcm4chee.config.home, 'server/default', p)
+      File.join(Dcm4chee.config.server_home, 'server/default', p)
     end
 
     # @return [Integer] 文件存储系统总空间大小（字节）
