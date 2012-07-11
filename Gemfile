@@ -23,6 +23,8 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'konacha'
+  gem 'dm-sqlite-adapter'
+  gem 'dm-postgres-adapter'
 end
 
 group :test do
