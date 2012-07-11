@@ -1,3 +1,4 @@
+require 'hex_string'
 require 'virtus'
 require 'dicom'
 
