@@ -1,10 +1,19 @@
 GIT
   remote: /home/tower/Repository/workspace/ruby/dm-searcher/.git
-  revision: 7c489adc9b40af09d8d21ad571e1d2a6e14681cb
+  revision: 00a4d22dc6f3775614ac56c52585f590cf424ded
   branch: develop
   specs:
     dm-searcher (0.1.0)
       data_mapper (>= 1.2.0)
+      dm-aggregates (>= 1.2.0)
+      dm-constraints (>= 1.2.0)
+      dm-core (>= 1.2.0)
+      dm-migrations (>= 1.2.0)
+      dm-serializer (>= 1.2.0)
+      dm-timestamps (>= 1.2.0)
+      dm-transactions (>= 1.2.0)
+      dm-types (>= 1.2.0)
+      dm-validations (>= 1.2.0)
 
 GIT
   remote: https://github.com/towerhe/jolokia.git
