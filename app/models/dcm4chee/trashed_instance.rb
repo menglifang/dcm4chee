@@ -26,7 +26,7 @@ module Dcm4chee
     belongs_to :trashed_series, 'Dcm4chee::TrashedSeries'
     has 1, :trashed_dicom_file, 'Dcm4chee::TrashedDicomFile'
 
-    def to_json(opts = {})
+    def as_json(opts = {})
       super(opts.merge(methods: [:dicom_file]))
     end
   end
