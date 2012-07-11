@@ -6,6 +6,12 @@ require 'rspec/autorun'
 
 require 'factory_girl_rails'
 require 'pry'
+require 'ffaker'
+require 'json_spec'
+
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'capybara-webkit'
 
 require 'dcm4chee'
 
