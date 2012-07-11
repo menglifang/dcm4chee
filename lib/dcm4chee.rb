@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'confstruct'
 require 'jolokia'
 require 'sys/filesystem'
+require 'dm-searcher'
 
 require 'dcm4chee/engine'
 require 'dcm4chee/api_constraints'
@@ -20,6 +21,8 @@ module Dcm4chee
 
     def configure(&block)
       config.configure(&block)
+
+      DataMapper.setup(:dcm4chee, config.repository_uri) if config.repository_uri
     end
 
     def content_edit_service

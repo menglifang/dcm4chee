@@ -7,11 +7,7 @@ describe Dcm4chee do
 
       Dcm4chee.configure do
         jolokia_url 'http://localhost:8080/jolokia'
-
-        repo do
-          adapter 'sqlite3'
-          database './db/dcm4chee.sqlite3'
-        end
+        repository_uri 'postgres://user:password@hostname/database'
       end
     end
 
@@ -23,12 +19,6 @@ describe Dcm4chee do
 
     its(:jolokia_url) { should == 'http://localhost:8080/jolokia' }
 
-    it 'sets the adapter of the repository' do
-      expect(subject.repo.adapter).to eql('sqlite3')
-    end
-
-    it 'sets the database of the repository' do
-      expect(subject.repo.database).to eql('./db/dcm4chee.sqlite3')
-    end
+    its(:repository_uri) { should == 'postgres://user:password@hostname/database' }
   end
 end
