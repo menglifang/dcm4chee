@@ -4,6 +4,7 @@ require 'jolokia'
 require 'sys/filesystem'
 
 require 'dcm4chee/engine'
+require 'dcm4chee/api_constraints'
 require 'dcm4chee/content_edit_service'
 require 'dcm4chee/file_system_management'
 
