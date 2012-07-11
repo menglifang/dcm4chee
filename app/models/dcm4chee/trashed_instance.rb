@@ -23,8 +23,8 @@ module Dcm4chee
 
     dicom_field 'inst_attrs'
 
-    belongs_to :trashed_series
-    has 1, :trashed_dicom_file
+    belongs_to :trashed_series, 'Dcm4chee::TrashedSeries'
+    has 1, :trashed_dicom_file, 'Dcm4chee::TrashedDicomFile'
 
     def to_json(opts = {})
       super(opts.merge(methods: [:dicom_file]))

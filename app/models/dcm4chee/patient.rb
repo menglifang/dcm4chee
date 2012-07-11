@@ -30,6 +30,6 @@ module Dcm4chee
     # @return [String] 病人DICOM信息
     dicom_field 'pat_attrs'
 
-    has n, :studies
+    has n, :studies, 'Dcm4chee::Study'
   end
 end

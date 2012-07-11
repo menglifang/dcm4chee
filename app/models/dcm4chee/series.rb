@@ -47,7 +47,7 @@ module Dcm4chee
 
     dicom_field 'series_attrs'
 
-    belongs_to :study
-    has n, :instances
+    belongs_to :study, 'Dcm4chee::Study'
+    has n, :instances, 'Dcm4chee::Instance'
   end
 end

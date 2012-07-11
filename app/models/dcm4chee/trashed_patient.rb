@@ -24,6 +24,6 @@ module Dcm4chee
     # @return [String] 病人DICOM信息
     dicom_field 'pat_attrs'
 
-    has n, :trashed_studies
+    has n, :trashed_studies, 'Dcm4chee::TrashedStudy'
   end
 end

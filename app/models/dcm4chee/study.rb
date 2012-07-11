@@ -47,7 +47,7 @@ module Dcm4chee
 
     dicom_field 'study_attrs'
 
-    belongs_to :patient
-    has n, :series
+    belongs_to :patient, 'Dcm4chee::Patient'
+    has n, :series, 'Dcm4chee::Series'
   end
 end

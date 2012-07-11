@@ -17,7 +17,8 @@ module Dcm4chee
     #   2: OFFLINE
     property :availability, Integer, field: 'availability'
 
-    has n, :dicom_files
+    has n, :dicom_files, 'Dcm4chee::DicomFile'
+    has n, :trashed_dicom_files, 'Dcm4chee::TrashedDicomFile'
 
     # 检测配置的文件系统路径是相对路径还是绝对路径，相对路径默认指向`$S2_PACS_SERV_HOME/server/default`
     def path

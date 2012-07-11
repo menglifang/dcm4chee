@@ -37,10 +37,10 @@ module Dcm4chee
 
     dicom_field 'inst_attrs'
 
-    belongs_to :series
-    has 1, :dicom_file
+    belongs_to :series, 'Dcm4chee::Series'
+    has 1, :dicom_file, 'Dcm4chee::DicomFile'
 
-    def to_json(opts = {})
+    def as_json(opts = {})
       super(opts.merge(methods: [:dicom_file]))
     end
   end

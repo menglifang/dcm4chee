@@ -46,8 +46,8 @@ module Dcm4chee
     # @return [DateTime] 文件创建时间
     property :created_at, DateTime, field: 'created_time'
 
-    belongs_to :instance
-    belongs_to :file_system
+    belongs_to :instance, 'Dcm4chee::Instance'
+    belongs_to :file_system, 'Dcm4chee::FileSystem'
 
     # 从文件中加载DICOM信息
     # @return [DICOM::DObject] DICOM信息

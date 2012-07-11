@@ -42,8 +42,8 @@ module Dcm4chee
     # @return [Integer] 文件状态
     property :availability, Enum[-4, -3, -2, -1, 0, 1, 2, 3], field: 'file_status'
 
-    belongs_to :trashed_instance
-    belongs_to :file_system
+    belongs_to :trashed_instance, 'Dcm4chee::TrashedInstance'
+    belongs_to :file_system, 'Dcm4chee::FileSystem'
 
     # 从文件中加载DICOM信息
     # @return [DICOM::DObject] DICOM信息

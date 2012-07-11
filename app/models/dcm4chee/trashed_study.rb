@@ -23,7 +23,7 @@ module Dcm4chee
 
     dicom_field 'study_attrs'
 
-    belongs_to :trashed_patient
-    has n, :trashed_series
+    belongs_to :trashed_patient, 'Dcm4chee::TrashedPatient'
+    has n, :trashed_series, 'Dcm4chee::TrashedSeries'
   end
 end
