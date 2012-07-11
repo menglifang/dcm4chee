@@ -10,6 +10,8 @@ require 'dcm4chee/content_edit_service'
 require 'dcm4chee/file_system_management'
 
 module Dcm4chee
+  REPOSITORY_NAME = :dcm4chee
+
   class << self
     def jolokia
       @jolokia ||= ::Jolokia.new(url: config.jolokia_url)
@@ -22,6 +24,7 @@ module Dcm4chee
     def configure(&block)
       config.configure(&block)
 
+      config.repository_name = REPOSITORY_NAME unless config.repository_name
       DataMapper.setup(:dcm4chee, config.repository_uri) if config.repository_uri
     end
 

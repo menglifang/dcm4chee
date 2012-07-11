@@ -7,7 +7,7 @@ module Dcm4chee
     include DicomObject
     include Trashable
 
-    storage_names[:default] = 'instance'
+    storage_names[Dcm4chee.config.repository_name] = 'instance'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -38,10 +38,10 @@ module Dcm4chee
     dicom_field 'inst_attrs'
 
     belongs_to :series, 'Dcm4chee::Series'
-    has 1, :dicom_file, 'Dcm4chee::DicomFile'
+    has n, :dicom_files, 'Dcm4chee::DicomFile'
 
-    def as_json(opts = {})
-      super(opts.merge(methods: [:dicom_file]))
+    def self.repository(name = nil, &block)
+      super(Dcm4chee.config.repository_name, &block)
     end
   end
 end

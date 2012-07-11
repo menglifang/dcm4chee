@@ -7,7 +7,7 @@ module Dcm4chee
     include DicomObject
     include Trashable
 
-    storage_names[:default] = 'priv_study'
+    storage_names[Dcm4chee.config.repository_name] = 'priv_study'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -25,5 +25,9 @@ module Dcm4chee
 
     belongs_to :trashed_patient, 'Dcm4chee::TrashedPatient'
     has n, :trashed_series, 'Dcm4chee::TrashedSeries'
+
+    def self.repository(name = nil, &block)
+      super(Dcm4chee.config.repository_name, &block)
+    end
   end
 end

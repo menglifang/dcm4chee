@@ -6,8 +6,10 @@ describe Dcm4chee do
       @config = Dcm4chee.config.clone
 
       Dcm4chee.configure do
-        jolokia_url 'http://localhost:8080/jolokia'
-        repository_uri 'postgres://user:password@hostname/database'
+        jolokia_url     'http://localhost:8080/jolokia'
+
+        repository_name :dcm4chee
+        repository_uri  'sqlite::memory:'
       end
     end
 
@@ -18,7 +20,7 @@ describe Dcm4chee do
     subject { Dcm4chee.config }
 
     its(:jolokia_url) { should == 'http://localhost:8080/jolokia' }
-
-    its(:repository_uri) { should == 'postgres://user:password@hostname/database' }
+    its(:repository_name) { should == :dcm4chee }
+    its(:repository_uri) { should == 'sqlite::memory:' }
   end
 end
