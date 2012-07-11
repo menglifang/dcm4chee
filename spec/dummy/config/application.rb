@@ -11,6 +11,10 @@ require "active_resource/railtie"
 Bundler.require
 require "dcm4chee"
 
+require 'pry'
+
+DataMapper.setup(:default, 'sqlite::memory:')
+
 module Dummy
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
