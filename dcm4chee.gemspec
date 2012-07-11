@@ -23,5 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency "dicom", "~> 0.9.3"
   s.add_dependency "sys-filesystem", "~> 1.0.0"
   s.add_dependency "hex_string", "~> 1.0.0"
-  s.add_dependency "dm-searcher", "~> 0.1.0"
+  #s.add_dependency "dm-searcher", "~> 0.1.0"
 end

@@ -1,4 +1,12 @@
 GIT
+  remote: /home/tower/Repository/workspace/ruby/dm-searcher/.git
+  revision: 7c489adc9b40af09d8d21ad571e1d2a6e14681cb
+  branch: develop
+  specs:
+    dm-searcher (0.1.0)
+      data_mapper (>= 1.2.0)
+
+GIT
   remote: https://github.com/towerhe/jolokia.git
   revision: b60c910b0b63c35c66e39f1e1c0d13ef85ff8a80
   specs:
@@ -12,7 +20,6 @@ PATH
     dcm4chee (0.0.1)
       confstruct (~> 0.2.3)
       dicom (~> 0.9.3)
-      dm-searcher (~> 0.1.0)
       hex_string (~> 1.0.0)
       rails (~> 3.2.6)
       sys-filesystem (~> 1.0.0)
@@ -95,8 +102,6 @@ GEM
     dm-postgres-adapter (1.2.0)
       dm-do-adapter (~> 1.2.0)
       do_postgres (~> 0.10.6)
-    dm-searcher (0.1.0)
-      data_mapper (~> 1.2.0)
     dm-serializer (1.2.1)
       dm-core (~> 1.2.0)
       fastercsv (~> 1.5.4)
@@ -245,6 +250,7 @@ DEPENDENCIES
   capybara-webkit
   dcm4chee!
   dm-postgres-adapter
+  dm-searcher!
   dm-sqlite-adapter
   factory_girl_rails
   ffaker

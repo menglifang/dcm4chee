@@ -18,6 +18,7 @@ gem 'jquery-rails'
 
 # Move to .gemspec
 gem 'jolokia', git: 'https://github.com/towerhe/jolokia.git'
+gem 'dm-searcher', git: '/home/tower/Repository/workspace/ruby/dm-searcher/.git', branch: :develop
 
 group :development, :test do
   gem 'pry'
