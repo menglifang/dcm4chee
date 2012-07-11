@@ -20,7 +20,14 @@ require 'dcm4chee'
 Dir[Rails.root.join('support/**/*.rb')].each {|f| require f}
 
 DataMapper.setup(:default, 'sqlite::memory:')
-DataMapper.setup(:dcm4chee, 'sqlite::memory:')
+
+Dcm4chee.configure do
+  server_home '/home/tower/Apps/dcm4chee-2.17.2-psql'
+  jolokia_url 'http://localhost:8080/jolokia'
+
+  repository_name :dcm4chee
+  repository_uri 'sqlite::memory:'
+end
 
 RSpec.configure do |config|
   # ## Mock Framework
