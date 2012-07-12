@@ -3,5 +3,5 @@ Dcm4chee.configure do
   jolokia_url 'http://localhost:8080/jolokia'
 
   repository_name :dcm4chee
-  repository_uri 'postgres://postgres@127.0.0.1/pacsdb'
+  repository_uri 'postgres://postgres:postgres@127.0.0.1/pacsdb'
 end
