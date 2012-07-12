@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
 # require "active_record/railtie"
+require "dm-rails/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
@@ -12,8 +13,6 @@ Bundler.require
 require "dcm4chee"
 
 require 'pry'
-
-DataMapper.setup(:default, 'sqlite::memory:')
 
 module Dummy
   class Application < Rails::Application
