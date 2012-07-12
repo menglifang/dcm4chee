@@ -6,13 +6,13 @@ module Dcm4chee
         respond_to :json
 
         # 查询回收站研究系列信息，支持的查询属性有：
-        #   study_id     研究编号
+        #   trashed_study_id     研究编号
         #
         # 支持的查询操作参见{DmSearch::ClassMethods}
         #
         # @example
         #   # 请求
-        #   GET /api/trashed_series?q[study_id]=... HTTP/1.1
+        #   GET /api/trashed_series?q[trashed_study_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
         #   # 响应
@@ -20,7 +20,7 @@ module Dcm4chee
         #   {
         #     "trashed_series": [{
         #       "id": ...,
-        #       "study_id": ...,
+        #       "trashed_study_id": ...,
         #       "series_iuid": ...,
         #       "source_aet": ...,
         #       "dcm_elements": [{
@@ -38,7 +38,7 @@ module Dcm4chee
           respond_with trashed_series: series
         end
 
-        # 将研究系列数据放入回收站（包括相关的实例和文件数据），并记录。
+        # 将研究系列信息放入回收站（包括相关的实例和文件信息），并记录。
         #
         # @example
         #   # 请求
@@ -57,7 +57,7 @@ module Dcm4chee
           head :created
         end
 
-        # 将研究系列数据从回收站中删除
+        # 将研究系列信息从回收站中删除
         #
         # @example
         #   # 请求

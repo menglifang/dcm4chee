@@ -44,7 +44,7 @@ module Dcm4chee
           respond_with studies: studies
         end
 
-        # 使用回收站中的研究数据创建研究。
+        # 使用回收站中的研究信息创建研究。
         #
         # @example
         #   # 请求

@@ -44,7 +44,7 @@ module Dcm4chee
           respond_with series: series
         end
 
-        # 使用回收站中的研究系列数据创建研究系列。
+        # 使用回收站中的研究系列信息创建研究系列。
         #
         # @example
         #   # 请求

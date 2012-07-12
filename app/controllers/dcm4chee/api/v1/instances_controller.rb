@@ -8,12 +8,12 @@ module Dcm4chee
         # 查询实例信息，支持的查询属性有：
         #   series_id     研究系列编号
         #
+        # 支持的查询操作参见{DmSearch::ClassMethods}
+        #
         # @example
         #   # 请求
         #   GET /api/instances?q[series_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
-        #
-        # 支持的查询操作参见{DmSearch::ClassMethods}
         #
         #   # 响应
         #   HTTP/1.1 200 OK
@@ -40,7 +40,7 @@ module Dcm4chee
           respond_with instances: instances
         end
 
-        # 使用回收站中的实例数据创建实例。
+        # 使用回收站中的实例信息创建实例。
         #
         # @example
         #   # 请求

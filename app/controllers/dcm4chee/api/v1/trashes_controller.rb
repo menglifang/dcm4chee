@@ -3,7 +3,7 @@ module Dcm4chee
   module Api
     module V1
       class TrashesController < BaseController
-        # 清空回收站中的所有数据
+        # 清空回收站中的所有信息
         #
         # @example
         #   # 请求

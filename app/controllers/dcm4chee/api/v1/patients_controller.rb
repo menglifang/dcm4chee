@@ -46,7 +46,7 @@ module Dcm4chee
           respond_with patients: patients
         end
 
-        # 使用回收站中的病人数据创建病人。
+        # 使用回收站中的病人信息创建病人。
         #
         # @example
         #   # 请求

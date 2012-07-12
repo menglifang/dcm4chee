@@ -6,13 +6,13 @@ module Dcm4chee
         respond_to :json
 
         # 查询回收站中研究信息，支持的查询属性有：
-        #   patient_id     病人编号
+        #   trashed_patient_id     病人编号
         #
         # 支持的查询操作参见{DmSearch::ClassMethods}
         #
         # @example
         #   # 请求
-        #   GET /api/trashed_studies?q[patient_id]=... HTTP/1.1
+        #   GET /api/trashed_studies?q[trashed_patient_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
         #   # 响应
@@ -20,7 +20,7 @@ module Dcm4chee
         #   {
         #     "trashed_studies": [{
         #       "id": ...,
-        #       "patient_id": ...,
+        #       "trashed_patient_id": ...,
         #       "study_iuid": ...,
         #       "accession_no": ...,
         #       "dcm_elements": [{
@@ -38,7 +38,7 @@ module Dcm4chee
           respond_with trashed_studies: studies
         end
 
-        # 将研究数据放入回收站（包括相关的研究系列、实例和文件数据），并记录。
+        # 将研究信息放入回收站（包括相关的研究系列、实例和文件信息），并记录。
         #
         # @example
         #   # 请求
@@ -57,7 +57,7 @@ module Dcm4chee
           head :created
         end
 
-        # 将研究数据从回收站中删除
+        # 将研究信息从回收站中删除
         #
         # @example
         #   # 请求
