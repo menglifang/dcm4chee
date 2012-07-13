@@ -5,6 +5,43 @@ module Dcm4chee
       class ApplicationEntitiesController < BaseController
         respond_to :json
 
+        # 列出所有的应用实体
+        #
+        # @example
+        #   # 请求
+        #   GET /api/application_entities HTTP/1.1
+        #   Accept: application/vnd.menglifang.s2pms.v1
+        #
+        #   # 响应
+        #   HTTP/1.1 200 OK
+        #   {
+        #     "application_entities": [{
+        #       "id": ...,
+        #       "title": ...,
+        #       "host": ...,
+        #       "port": ...,
+        #       "cipher_suites": ...,
+        #       "patient_id_issuer": ...,
+        #       "accession_number_issuer": ...,
+        #       "username": ...,
+        #       "password": ...,
+        #       "fs_group": ...,
+        #       "group": ...,
+        #       "description": ...,
+        #       "wado_url": ...,
+        #       "station_name": ...,
+        #       "institution": ...,
+        #       "department": ...,
+        #       "installed": ...,
+        #       "check_host": ...
+        #     }, ...]
+        #   }
+        def index
+          entities = Dcm4chee::ApplicationEntity.all
+
+          respond_with application_entities: entities
+        end
+
         # 创建新的应用实体
         #
         # @example
