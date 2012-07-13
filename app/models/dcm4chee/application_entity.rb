@@ -85,6 +85,11 @@ module Dcm4chee
       Dcm4chee.application_entity_service.update_ae(params)
     end
 
+    # 通过dcm4chee发布的服务（AEService）删除应用实体
+    def destroy_by_service
+      Dcm4chee.application_entity_service.remove_ae(title)
+    end
+
     class << self
       def repository(name = nil, &block)
         super(Dcm4chee.config.repository_name, &block)

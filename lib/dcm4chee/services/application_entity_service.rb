@@ -107,6 +107,15 @@ module Dcm4chee
                           "updateAE(#{signatures.join(',')})",
                           attr_values)
         end
+
+        # 删除应用实体
+        #
+        # @param [String] title 要删除的应用实体名称
+        def remove_ae(title)
+          jolokia.execute(MBEAN_NAME,
+                          "removeAE(java.lang.String)",
+                          title)
+        end
       end
     end
   end

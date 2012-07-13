@@ -77,6 +77,22 @@ module Dcm4chee
 
           head :ok
         end
+
+        # 删除应用实体
+        #
+        # @example
+        #   # 请求
+        #   DELETE /api/application_entities/... HTTP/1.1
+        #   Accept: application/vnd.menglifang.s2pms.v1
+        #
+        #   # 响应
+        #   HTTP/1.1 200 OK
+        def destroy
+          entity = Dcm4chee::ApplicationEntity.get!(params[:id])
+          entity.destroy_by_service
+
+          head :ok
+        end
       end
     end
   end

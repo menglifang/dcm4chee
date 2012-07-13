@@ -15,7 +15,7 @@ Dcm4chee::Engine.routes.draw do
 
       resource  :trash, only: :destroy
 
-      resources :application_entities, only: [:create, :update]
+      resources :application_entities, only: [:create, :update, :destroy]
     end
   end
 end
