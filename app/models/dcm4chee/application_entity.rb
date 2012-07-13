@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 module Dcm4chee
   class ApplicationEntity
     include DataMapper::Resource
@@ -63,10 +64,10 @@ module Dcm4chee
       params = [
         id,
         attrs[:title] || title,
-        attrs[:post] || host,
+        attrs[:host] || host,
         attrs[:port] || port,
         attrs[:cipher_suites] || cipher_suites,
-        attrs[:pat_id_issuer] || patient_id_issuer,
+        attrs[:patient_id_issuer] || patient_id_issuer,
         attrs[:accession_number_issuer] || accession_number_issuer,
         attrs[:username] || username,
         attrs[:password] || password,
@@ -95,7 +96,6 @@ module Dcm4chee
       def create_by_service(attrs = {})
         e = new(attrs)
         params = [
-          -1,
           e.title,
           e.host,
           e.port,
@@ -115,7 +115,7 @@ module Dcm4chee
           true
         ]
 
-        Dcm4chee.application_entity_service.update_ae(params)
+        Dcm4chee.application_entity_service.add_ae(params)
       end
     end
   end
