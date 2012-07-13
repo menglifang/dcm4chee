@@ -6,8 +6,9 @@ require 'dm-searcher'
 
 require 'dcm4chee/engine'
 require 'dcm4chee/api_constraints'
-require 'dcm4chee/content_edit_service'
-require 'dcm4chee/file_system_management'
+
+require 'dcm4chee/services/content_edit_service'
+require 'dcm4chee/services/file_system_management'
 
 module Dcm4chee
   REPOSITORY_NAME = :dcm4chee
@@ -38,5 +39,5 @@ module Dcm4chee
   end
 end
 
-require 'dcm4chee/dicom_object'
-require 'dcm4chee/trashable'
+require 'dcm4chee/models/dicom_object'
+require 'dcm4chee/models/trashable'
