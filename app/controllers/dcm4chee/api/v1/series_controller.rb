@@ -8,7 +8,7 @@ module Dcm4chee
         # 查询研究系列信息，支持的查询属性有：
         #   study_id     研究编号
         #
-        # 支持的查询操作参见{DmSearch::ClassMethods}
+        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
         #
         # @example
         #   # 请求

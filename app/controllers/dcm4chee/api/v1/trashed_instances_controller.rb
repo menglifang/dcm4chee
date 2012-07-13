@@ -8,7 +8,7 @@ module Dcm4chee
         # 查询回收站实例信息，支持的查询属性有：
         #   trashed_series_id     研究系列编号
         #
-        # 支持的查询操作参见{DmSearch::ClassMethods}
+        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
         #
         # @example
         #   # 请求
