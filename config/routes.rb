@@ -14,6 +14,8 @@ Dcm4chee::Engine.routes.draw do
       resources :file_systems, only: :index
 
       resource  :trash, only: :destroy
+
+      resources :application_entities, only: [:create, :update]
     end
   end
 end
