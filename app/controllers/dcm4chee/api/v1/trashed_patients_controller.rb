@@ -12,7 +12,7 @@ module Dcm4chee
         #   trashed_studies.accession_no      登记号
         #   trashed_studies.series.source_aet 源AET
         #
-        # 支持的查询操作参见{DmSearch::ClassMethods}
+        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
         #
         # @example
         #   # 请求

@@ -8,7 +8,7 @@ module Dcm4chee
         # 查询研究信息，支持的查询属性有：
         #   patient_id     病人编号
         #
-        # 支持的查询操作参见{DmSearch::ClassMethods}
+        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
         #
         # @example
         #   # 请求

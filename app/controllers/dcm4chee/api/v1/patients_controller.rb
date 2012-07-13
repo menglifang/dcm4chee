@@ -14,7 +14,7 @@ module Dcm4chee
         #   studies.series.modality   成像设备
         #   studies.series.source_aet 源AET
         #
-        # 支持的查询操作参见{DmSearch::ClassMethods}
+        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
         #
         # @example
         #   # 请求

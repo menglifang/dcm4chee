@@ -1,5 +1,7 @@
 .bundle/
 .rvmrc
+.yardoc/
+doc/
 log/*.log
 pkg/
 spec/dummy/db/*.sqlite3

@@ -30,11 +30,11 @@ module Dcm4chee
     end
 
     def content_edit_service
-      @content_edit_service ||= Dcm4chee::ContentEditService.new(jolokia)
+      @content_edit_service ||= Dcm4chee::Service::ContentEditService.new(jolokia)
     end
 
     def file_system_management
-      @file_system_management ||= Dcm4chee::FileSystemManagement.new(jolokia)
+      @file_system_management ||= Dcm4chee::Service::FileSystemManagement.new(jolokia)
     end
   end
 end

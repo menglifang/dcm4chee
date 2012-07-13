@@ -21,6 +21,8 @@ gem 'dm-rails'
 gem 'jolokia', git: 'https://github.com/towerhe/jolokia.git'
 
 group :development, :test do
+  gem 'yard'
+  gem 'redcarpet'
   gem 'pry'
   gem 'rspec-rails'
   gem 'konacha'
