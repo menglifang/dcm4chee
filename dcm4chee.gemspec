@@ -13,8 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Providing RESTful APIs for dcm4chee."
   s.description = "Providing RESTful APIs for dcm4chee."
 
-  s.files         = `git ls-files`.split($\)
-  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.files = Dir["{app,config,lib}/**/*"] + ["Rakefile", "README.md"]
   s.require_paths = ["lib"]
 
   s.add_dependency "rails", "~> 3.2.6"
