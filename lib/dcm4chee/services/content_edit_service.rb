@@ -1,14 +1,8 @@
 module Dcm4chee
   module Service
-    class ContentEditService
+    class ContentEditService < MBean
 
       MBEAN_NAME = 'dcm4chee.archive:service=ContentEditService'
-
-      attr_accessor :jolokia
-
-      def initialize(jolokia)
-        @jolokia = jolokia
-      end
 
       def empty_trash
         jolokia.execute(MBEAN_NAME, 'emptyTrash')

@@ -7,8 +7,10 @@ require 'dm-searcher'
 require 'dcm4chee/engine'
 require 'dcm4chee/api_constraints'
 
+require 'dcm4chee/services/mbean'
 require 'dcm4chee/services/content_edit_service'
 require 'dcm4chee/services/file_system_management'
+require 'dcm4chee/services/move_scu_service'
 
 module Dcm4chee
   REPOSITORY_NAME = :dcm4chee
