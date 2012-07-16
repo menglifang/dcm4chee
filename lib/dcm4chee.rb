@@ -31,12 +31,20 @@ module Dcm4chee
       DataMapper.setup(:dcm4chee, config.repository_uri) if config.repository_uri
     end
 
+    def application_entity_service
+      @application_entity_service ||= Dcm4chee::Service::ApplicationEntityService.new(jolokia)
+    end
+
     def content_edit_service
       @content_edit_service ||= Dcm4chee::Service::ContentEditService.new(jolokia)
     end
 
     def file_system_management
       @file_system_management ||= Dcm4chee::Service::FileSystemManagement.new(jolokia)
+    end
+
+    def move_scu_service
+      @move_scu_service ||= Dcm4chee::Service::MoveScuService.new(jolokia)
     end
   end
 end

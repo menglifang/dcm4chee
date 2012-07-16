@@ -16,6 +16,9 @@ Dcm4chee::Engine.routes.draw do
       resource  :trash, only: :destroy
 
       resources :application_entities, only: [:index, :create, :update, :destroy]
+      resources :dicom_objects, only: [:move] do
+        post :move, on: :collection
+      end
     end
   end
 end
