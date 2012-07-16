@@ -4,7 +4,7 @@ module Dcm4chee
     include DataMapper::Resource
     include DataMapper::Searcher
 
-    include DicomObject
+    include HasDicomObject
     include Trashable
 
     storage_names[Dcm4chee.config.repository_name] = 'priv_instance'

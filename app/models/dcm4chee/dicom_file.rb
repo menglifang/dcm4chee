@@ -2,7 +2,7 @@
 module Dcm4chee
   class DicomFile
     include DataMapper::Resource
-    include DicomObject
+    include HasDicomObject
 
     storage_names[Dcm4chee.config.repository_name] = 'files'
 

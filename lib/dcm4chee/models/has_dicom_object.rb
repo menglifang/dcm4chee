@@ -3,7 +3,7 @@ require 'virtus'
 require 'dicom'
 
 module Dcm4chee
-  module DicomObject
+  module HasDicomObject
     extend ActiveSupport::Concern
 
     class Element
