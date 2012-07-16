@@ -22,8 +22,8 @@ module Dcm4chee
                         priority,
                         pid,
                         study_iuids,
-                        series_iuids,
-                        sop_iuids,
+                        series_iuids = nil,
+                        sop_iuids = nil,
                         scheduled_time = 0)
         signatures = [
           'java.lang.String',
