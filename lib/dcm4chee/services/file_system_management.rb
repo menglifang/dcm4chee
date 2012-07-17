@@ -1,6 +1,6 @@
 module Dcm4chee
   module Service
-    class FileSystemManagement
+    class FileSystemManagement < MBean
 
       MBEAN_NAME = 'dcm4chee.archive:group=ONLINE_STORAGE,service=FileSystemMgt'
 
