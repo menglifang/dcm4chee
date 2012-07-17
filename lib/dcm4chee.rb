@@ -8,6 +8,7 @@ require 'dcm4chee/engine'
 require 'dcm4chee/api_constraints'
 
 require 'dcm4chee/services/mbean'
+require 'dcm4chee/services/application_entity_service'
 require 'dcm4chee/services/content_edit_service'
 require 'dcm4chee/services/file_system_management'
 require 'dcm4chee/services/move_scu_service'
@@ -31,20 +32,23 @@ module Dcm4chee
       DataMapper.setup(:dcm4chee, config.repository_uri) if config.repository_uri
     end
 
-    def application_entity_service
-      @application_entity_service ||= Dcm4chee::Service::ApplicationEntityService.new(jolokia)
+    def respond_to?(method)
+      Dcm4chee::Service.constants.include?(method.to_s.camelize.to_sym) || super(method)
     end
 
-    def content_edit_service
-      @content_edit_service ||= Dcm4chee::Service::ContentEditService.new(jolokia)
-    end
+    def method_missing(name, *args, &block)
+      service = instance_variable_get("@#{name}")
+      return service if service
 
-    def file_system_management
-      @file_system_management ||= Dcm4chee::Service::FileSystemManagement.new(jolokia)
-    end
+      begin
+        service_class = "Dcm4chee::Service::#{name.to_s.camelize}".constantize
+        service = service_class.new(jolokia)
+        instance_variable_set("@#{name}", service)
 
-    def move_scu_service
-      @move_scu_service ||= Dcm4chee::Service::MoveScuService.new(jolokia)
+        service
+      rescue
+        super(name, *args, &block)
+      end
     end
   end
 end
