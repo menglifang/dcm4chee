@@ -23,4 +23,28 @@ describe Dcm4chee do
     its(:repository_name) { should == :dcm4chee }
     its(:repository_uri) { should == 'sqlite::memory:' }
   end
+
+  describe '.respond_to?' do
+    context 'when the service is defined' do
+      class Dcm4chee::Service::MyService < Dcm4chee::Service::MBean; end
+
+      it 'responds to a service method' do
+        expect(Dcm4chee).to be_respond_to :my_service
+      end
+    end
+
+    context 'when the service is not defined' do
+      it 'does not respond to a service method' do
+        expect(Dcm4chee).not_to be_respond_to :not_exist_service
+      end
+    end
+  end
+
+  describe '.method_missing' do
+    class Dcm4chee::Service::SimpleService < Dcm4chee::Service::MBean; end
+
+    it 'creates a dynamic method for Dcm4chee::Service' do
+      expect(Dcm4chee.simple_service).to be_a Dcm4chee::Service::SimpleService
+    end
+  end
 end
