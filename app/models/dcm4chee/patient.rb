@@ -21,8 +21,8 @@ module Dcm4chee
     # @return [String] 病人姓名
     property :name, String, field: 'pat_name'
 
-    # @return [Date] 病人生日
-    property :birthday, Date, field: 'pat_birthdate'
+    # @return [String] 病人生日
+    property :birthday, String, field: 'pat_birthdate'
 
     # @return [String] 病人性别
     property :gender, String, field: 'pat_sex'
