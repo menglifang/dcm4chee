@@ -22,8 +22,15 @@ module Dcm4chee
       return nil unless dicom_attributes
 
       # TODO Cache it
-      ::DICOM::DObject.parse(dicom_attributes.gsub(/\\x/, '').to_byte_string,
-                             syntax: tsuid)
+      adapter = repository.adapter.options[:adapter]
+      attrs = nil
+      if adapter == 'postgres'
+        attrs = dicom_attributes.gsub(/\\x/, '').to_byte_string
+      elsif adapter == 'mysql'
+        attrs = dicom_attributes.to_hex_string.to_byte_string
+      end
+
+      ::DICOM::DObject.parse(attrs, syntax: tsuid) if attrs
     end
 
     def dcm_elements
