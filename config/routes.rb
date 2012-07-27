@@ -1,6 +1,7 @@
 Dcm4chee::Engine.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     scope module: :v1, constraints: Dcm4chee::ApiConstraints.new(version: 1, default: true) do
+      resources :modalities, only: :index
       resources :patients, only: [:index, :create]
       resources :studies, only: [:index, :create]
       resources :series, only: [:index, :create]
