@@ -51,7 +51,7 @@ module Dcm4chee
         #   # 响应
         #   HTTP/1.1 201 Created
         def create
-          series = Series.get!(params[:study_id])
+          series = Series.get!(params[:series_id])
           series.move_to_trash
 
           head :created

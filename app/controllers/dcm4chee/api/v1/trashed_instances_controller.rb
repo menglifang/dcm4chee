@@ -51,7 +51,7 @@ module Dcm4chee
         #   # 响应
         #   HTTP/1.1 201 Created
         def create
-          instance = Instance.get!(params[:study_id])
+          instance = Instance.get!(params[:instance_id])
           instance.move_to_trash
 
           head :created
