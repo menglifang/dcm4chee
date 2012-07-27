@@ -22,7 +22,7 @@ module Dcm4chee
         #       "id": ...,
         #       "trashed_series_id": ...,
         #       "created_at": ...,
-        #       "sop_instance_uid": ...,
+        #       "sop_iuid": ...,
         #       "dcm_elements": [{
         #         "name": ...,
         #         "value": ...,

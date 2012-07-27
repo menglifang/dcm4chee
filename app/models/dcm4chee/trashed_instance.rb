@@ -19,7 +19,7 @@ module Dcm4chee
     property :created_at, DateTime, field: 'created_time'
 
     # @return [String] DICOM SOP Instance UID(0008,0018)
-    property :sop_instance_uid, Text, field: 'sop_iuid'
+    property :sop_iuid, Text, field: 'sop_iuid'
 
     dicom_field 'inst_attrs'
 

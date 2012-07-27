@@ -23,7 +23,8 @@ module Dcm4chee
         #       "series_id": ...,
         #       "created_at": ...,
         #       "instance_no": ...,
-        #       "sop_class_uid": ...,
+        #       "sop_cuid": ...,
+        #       "sop_iuid": ...,
         #       "availability": ...,
         #       "dcm_elements": [{
         #         "name": ...,
