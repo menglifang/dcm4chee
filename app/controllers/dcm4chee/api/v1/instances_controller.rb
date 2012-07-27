@@ -25,6 +25,8 @@ module Dcm4chee
         #       "instance_no": ...,
         #       "sop_cuid": ...,
         #       "sop_iuid": ...,
+        #       "series_iuid": ...,
+        #       "study_iuid": ...,
         #       "availability": ...,
         #       "dcm_elements": [{
         #         "name": ...,

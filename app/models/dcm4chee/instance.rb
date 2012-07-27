@@ -21,8 +21,11 @@ module Dcm4chee
     # @return [String] DICOM实例号(0020,0013)
     property :instance_no, String, field: 'inst_no'
 
+    # @return [String] DICOM SOP Instance UID(0008,0018)
+    property :sop_iuid, Text, field: 'sop_iuid'
+
     # @return [String] DICOM SOP Class UID(0008,0016)
-    property :sop_class_uid, Text, field: 'sop_cuid'
+    property :sop_cuid, Text, field: 'sop_cuid'
 
     # DICOM实例有效新(0008,0056)
     #   0: ONLINE
@@ -39,6 +42,22 @@ module Dcm4chee
 
     belongs_to :series, 'Dcm4chee::Series'
     has n, :dicom_files, 'Dcm4chee::DicomFile'
+
+    def study_iuid
+      series.study.study_iuid
+    end
+
+    def series_iuid
+      series.series_iuid
+    end
+
+    def as_json(opts = {})
+      opts[:methods] ||= []
+      opts[:methods] << :series_iuid
+      opts[:methods] << :study_iuid
+
+      super(opts)
+    end
 
     def self.repository(name = nil, &block)
       super(Dcm4chee.config.repository_name, &block)
