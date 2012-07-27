@@ -8,7 +8,6 @@ module Dcm4chee
     include Trashable
 
     storage_names[Dcm4chee.config.repository_name] = 'priv_instance'
-    table_name 'priv_instance'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
