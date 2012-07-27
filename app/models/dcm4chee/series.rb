@@ -50,8 +50,14 @@ module Dcm4chee
     belongs_to :study, 'Dcm4chee::Study'
     has n, :instances, 'Dcm4chee::Instance'
 
-    def self.modalities
-      Series.aggregate(:modality)
+    class << self
+      def modalities
+        Series.aggregate(:modality)
+      end
+
+      def source_aets
+        Series.aggregate(:source_aet)
+      end
     end
   end
 end
