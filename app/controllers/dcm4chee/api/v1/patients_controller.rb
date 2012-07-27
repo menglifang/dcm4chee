@@ -50,7 +50,7 @@ module Dcm4chee
           patients = Patient.search(params[:q]).
             page(params[:page] || 1, per_page: params[:limit] || 20)
 
-          respond_with patients: patients
+          render json: { patients: patients, total: patients.pager.total }
         end
 
         # 使用回收站中的病人信息创建病人。
