@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class FileSystem
-    include Repository
+    include DataMapper::Resource
 
-    table_name 'filesystem'
+    storage_names[Dcm4chee.config.repository_name] = 'filesystem'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -78,6 +78,10 @@ module Dcm4chee
       # @return [DataMapper::Collection] 所有在线文件存储系统
       def online
         all(availability: 0)
+      end
+
+      def repository(name = nil, &block)
+        super(Dcm4chee.config.repository_name, &block)
       end
     end
 

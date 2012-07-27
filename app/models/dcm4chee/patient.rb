@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class Patient
-    include Repository
+    include DataMapper::Resource
     include DataMapper::Searcher
 
     include HasDicomObject
     include Trashable
 
-    table_name 'patient'
+    storage_names[Dcm4chee.config.repository_name] = 'patient'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -31,5 +31,9 @@ module Dcm4chee
     dicom_field 'pat_attrs'
 
     has n, :studies, 'Dcm4chee::Study'
+
+    def self.repository(name = nil, &block)
+      super(Dcm4chee.config.repository_name, &block)
+    end
   end
 end

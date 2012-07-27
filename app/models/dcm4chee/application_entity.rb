@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class ApplicationEntity
-    include Repository
+    include DataMapper::Resource
 
-    table_name 'ae'
+    storage_names[Dcm4chee.config.repository_name] = 'ae'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -117,6 +117,10 @@ module Dcm4chee
         ]
 
         Dcm4chee.application_entity_service.add_ae(params)
+      end
+
+      def repository(name = nil, &block)
+        super(Dcm4chee.config.repository_name, &block)
       end
     end
   end

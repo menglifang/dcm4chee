@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class TrashedDicomFile
-    include Repository
+    include DataMapper::Resource
     include DataMapper::Searcher
 
     include HasDicomObject
 
-    table_name 'priv_file'
+    storage_names[Dcm4chee.config.repository_name] = 'priv_file'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -49,6 +49,10 @@ module Dcm4chee
     # @return [DICOM::DObject] DICOM信息
     def dcm
       @dcm ||= DICOM::DObject.read(File.join(file_system.path, path))
+    end
+
+    def self.repository(name = nil, &block)
+      super(Dcm4chee.config.repository_name, &block)
     end
   end
 end

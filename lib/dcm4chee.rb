@@ -7,7 +7,6 @@ require 'dm-pager'
 
 require 'dcm4chee/engine'
 require 'dcm4chee/api_constraints'
-require 'dcm4chee/repository'
 
 require 'dcm4chee/services/mbean'
 require 'dcm4chee/services/application_entity_service'
