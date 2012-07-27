@@ -50,6 +50,10 @@ module Dcm4chee
     belongs_to :study, 'Dcm4chee::Study'
     has n, :instances, 'Dcm4chee::Instance'
 
+    def self.modalities
+      Series.aggregate(:modality)
+    end
+
     def self.repository(name = nil, &block)
       super(Dcm4chee.config.repository_name, &block)
     end
