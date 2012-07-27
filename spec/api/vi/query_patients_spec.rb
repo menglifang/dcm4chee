@@ -27,8 +27,8 @@ describe 'Querying patients', type: :request do
 
         json = response.body
         json.should have_json_size(2).at_path('patients')
-        json.should be_json_eql(%("Hello Kitty")).at_path('patients/0/name')
-        json.should be_json_eql(%("Hello Snoopy")).at_path('patients/1/name')
+        json.should be_json_eql(%("Hello Snoopy")).at_path('patients/0/name')
+        json.should be_json_eql(%("Hello Kitty")).at_path('patients/1/name')
       end
     end
   end

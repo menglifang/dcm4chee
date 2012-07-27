@@ -3,6 +3,7 @@ require 'confstruct'
 require 'jolokia'
 require 'sys/filesystem'
 require 'dm-searcher'
+require 'dm-pager'
 
 require 'dcm4chee/engine'
 require 'dcm4chee/api_constraints'

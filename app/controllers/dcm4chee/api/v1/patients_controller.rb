@@ -16,6 +16,10 @@ module Dcm4chee
         #
         # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
         #
+        # 分页查询参数：
+        #   page    请求的页码，缺省值1
+        #   limit   每页记录数，缺省值20
+        #
         # @example
         #   # 请求
         #   GET /api/patients?q[name.like]=... HTTP/1.1
@@ -24,6 +28,8 @@ module Dcm4chee
         #   # 响应
         #   HTTP/1.1 200 OK
         #   {
+        #     "page": ...,
+        #     "limit": ...,
         #     "patients": [{
         #       "id": ...,
         #       "pid": ...,
@@ -41,7 +47,8 @@ module Dcm4chee
         #     }, ...]
         #   }
         def index
-          patients = Patient.search(params[:q])
+          patients = Patient.search(params[:q]).
+            page(params[:page] || 1, per_page: params[:limit] || 20)
 
           respond_with patients: patients
         end
