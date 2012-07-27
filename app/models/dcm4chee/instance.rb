@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class Instance
-    include DataMapper::Resource
+    include Repository
     include DataMapper::Searcher
 
     include HasDicomObject
     include Trashable
 
-    storage_names[Dcm4chee.config.repository_name] = 'instance'
+    table_name 'instance'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -39,9 +39,5 @@ module Dcm4chee
 
     belongs_to :series, 'Dcm4chee::Series'
     has n, :dicom_files, 'Dcm4chee::DicomFile'
-
-    def self.repository(name = nil, &block)
-      super(Dcm4chee.config.repository_name, &block)
-    end
   end
 end

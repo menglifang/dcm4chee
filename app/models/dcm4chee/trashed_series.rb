@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class TrashedSeries
-    include DataMapper::Resource
+    include Repository
     include DataMapper::Searcher
 
     include HasDicomObject
     include Trashable
 
-    storage_names[Dcm4chee.config.repository_name] = 'priv_series'
+    table_name 'priv_series'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -25,9 +25,5 @@ module Dcm4chee
 
     belongs_to :trashed_study, 'Dcm4chee::TrashedStudy'
     has n, :trashed_instances, 'Dcm4chee::TrashedInstance'
-
-    def self.repository(name = nil, &block)
-      super(Dcm4chee.config.repository_name, &block)
-    end
   end
 end

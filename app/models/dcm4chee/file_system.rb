@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class FileSystem
-    include DataMapper::Resource
+    include Repository
 
-    storage_names[Dcm4chee.config.repository_name] = 'filesystem'
+    table_name 'filesystem'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -86,10 +86,6 @@ module Dcm4chee
     # @return [Sys::Filesystem] 文件存储系统状态
     def status
       @status ||= Sys::Filesystem.stat(path)
-    end
-
-    def self.repository(name = nil, &block)
-      super(Dcm4chee.config.repository_name, &block)
     end
   end
 end
