@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 module Dcm4chee
   class Series
-    include DataMapper::Resource
+    include Repository
     include DataMapper::Searcher
 
     include HasDicomObject
     include Trashable
 
-    storage_names[Dcm4chee.config.repository_name] = 'series'
+    table_name 'series'
 
     # @return [Integer] 主键
     property :id, Serial, field: 'pk'
@@ -52,10 +52,6 @@ module Dcm4chee
 
     def self.modalities
       Series.aggregate(:modality)
-    end
-
-    def self.repository(name = nil, &block)
-      super(Dcm4chee.config.repository_name, &block)
     end
   end
 end
