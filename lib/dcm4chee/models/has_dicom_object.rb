@@ -22,7 +22,7 @@ module Dcm4chee
       return nil unless dicom_attributes
 
       # TODO Cache it
-      adapter = repository(Dcm4chee.config.repository_name).adapter.options[:adapter]
+      adapter = repository.adapter.options[:adapter]
       attrs = nil
       if adapter == 'postgres'
         attrs = dicom_attributes.gsub(/\\x/, '').to_byte_string
