@@ -23,6 +23,8 @@ module Dcm4chee
         #       "trashed_series_id": ...,
         #       "created_at": ...,
         #       "sop_iuid": ...,
+        #       "series_iuid": ...,
+        #       "study_iuid": ...,
         #       "dcm_elements": [{
         #         "name": ...,
         #         "value": ...,

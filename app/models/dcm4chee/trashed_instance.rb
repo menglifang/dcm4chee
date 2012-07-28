@@ -26,6 +26,22 @@ module Dcm4chee
     belongs_to :trashed_series, 'Dcm4chee::TrashedSeries'
     has n, :trashed_dicom_files, 'Dcm4chee::TrashedDicomFile'
 
+    def study_iuid
+      trashed_series.trashed_study.study_iuid
+    end
+
+    def series_iuid
+      trashed_series.series_iuid
+    end
+
+    def as_json(opts = {})
+      opts[:methods] ||= []
+      opts[:methods] << :series_iuid
+      opts[:methods] << :study_iuid
+
+      super(opts)
+    end
+
     def self.repository(name = nil, &block)
       super(Dcm4chee.config.repository_name, &block)
     end
