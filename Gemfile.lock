@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/towerhe/jolokia.git
-  revision: 6904b0900ab17779e8fdd846d34bf17ffdb92191
+  revision: ce0ceb8844c859baf4a196c97793414e7958912e
   branch: develop
   specs:
     jolokia (0.0.1)
