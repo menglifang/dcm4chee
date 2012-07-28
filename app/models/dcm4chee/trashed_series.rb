@@ -26,8 +26,18 @@ module Dcm4chee
     belongs_to :trashed_study, 'Dcm4chee::TrashedStudy'
     has n, :trashed_instances, 'Dcm4chee::TrashedInstance'
 
-    def self.repository(name = nil, &block)
-      super(Dcm4chee.config.repository_name, &block)
+    class << self
+      def modalities
+        Series.aggregate(:modality)
+      end
+
+      def source_aets
+        Series.aggregate(:source_aet)
+      end
+
+      def repository(name = nil, &block)
+        super(Dcm4chee.config.repository_name, &block)
+      end
     end
   end
 end
