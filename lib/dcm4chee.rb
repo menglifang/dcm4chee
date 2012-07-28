@@ -55,4 +55,3 @@ module Dcm4chee
 end
 
 require 'dcm4chee/models/has_dicom_object'
-require 'dcm4chee/models/trashable'
