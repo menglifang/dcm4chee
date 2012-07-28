@@ -12,7 +12,7 @@ module Dcm4chee
         def define_component(name)
           name = name.to_s
 
-          if name.started_with?('trashed')
+          if name.start_with?('trashed')
             define_method("undelete_#{name}".to_sym) do |id|
               jolokia.execute(MBEAN_NAME,
                               "undelete#{name.camelize}(long)", id)
