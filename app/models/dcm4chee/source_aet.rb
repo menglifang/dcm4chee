@@ -5,9 +5,15 @@ module Dcm4chee
     attribute :name, String
 
     def self.all
-      Series.source_aets.inject([]) do |c, n|
-        c << SourceAet.new(name: n)
+      source_aets = []
+
+      [Series.source_aets, TrashedSeries.source_aets].each do |names|
+        names.each do |n|
+          source_aets << SourceAet.new(name: n)
+        end
       end
+
+      source_aets
     end
   end
 end
