@@ -5,7 +5,6 @@ module Dcm4chee
     include DataMapper::Searcher
 
     include HasDicomObject
-    include Trashable
 
     storage_names[Dcm4chee.config.repository_name] = 'instance'
 
@@ -49,6 +48,10 @@ module Dcm4chee
 
     def series_iuid
       series.series_iuid
+    end
+
+    def move_to_trash
+      Dcm4chee.content_edit_service.move_instance_to_trash(id)
     end
 
     def as_json(opts = {})
