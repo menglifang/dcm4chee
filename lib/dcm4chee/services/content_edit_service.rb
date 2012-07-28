@@ -14,17 +14,17 @@ module Dcm4chee
 
           define_method("move_#{name}_to_trash".to_sym) do |id|
             jolokia.execute(MBEAN_NAME,
-                            "move#{name.camelize}ToTrash", id)
+                            "move#{name.camelize}ToTrash(long)", id)
           end
 
           define_method("undelete_#{name}".to_sym) do |id|
             jolokia.execute(MBEAN_NAME,
-                            "undelete#{name.camelize}", id)
+                            "undelete#{name.camelize}(long)", id)
           end
 
           define_method("delete_#{name}".to_sym) do |id|
             jolokia.execute(MBEAN_NAME,
-                            "delete#{name.camelize}", id)
+                            "delete#{name.camelize}(long)", id)
           end
         end
       end
