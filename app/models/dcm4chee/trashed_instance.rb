@@ -5,7 +5,6 @@ module Dcm4chee
     include DataMapper::Searcher
 
     include HasDicomObject
-    include Trashable
 
     storage_names[Dcm4chee.config.repository_name] = 'priv_instance'
 
@@ -25,6 +24,14 @@ module Dcm4chee
 
     belongs_to :trashed_series, 'Dcm4chee::TrashedSeries'
     has n, :trashed_dicom_files, 'Dcm4chee::TrashedDicomFile'
+
+    def restore_from_trash
+      Dcm4chee.content_edit_service.undelete_instance(id)
+    end
+
+    def remove_from_trash
+      Dcm4chee.content_edit_service.delete_instance(id)
+    end
 
     def study_iuid
       trashed_series.trashed_study.study_iuid

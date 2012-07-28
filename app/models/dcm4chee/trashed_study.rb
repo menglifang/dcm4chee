@@ -5,7 +5,6 @@ module Dcm4chee
     include DataMapper::Searcher
 
     include HasDicomObject
-    include Trashable
 
     storage_names[Dcm4chee.config.repository_name] = 'priv_study'
 
@@ -25,6 +24,14 @@ module Dcm4chee
 
     belongs_to :trashed_patient, 'Dcm4chee::TrashedPatient'
     has n, :trashed_series, 'Dcm4chee::TrashedSeries'
+
+    def restore_from_trash
+      Dcm4chee.content_edit_service.undelete_study(id)
+    end
+
+    def remove_from_trash
+      Dcm4chee.content_edit_service.delete_study(id)
+    end
 
     def self.repository(name = nil, &block)
       super(Dcm4chee.config.repository_name, &block)
