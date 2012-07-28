@@ -18,7 +18,7 @@ gem 'dm-rails'
 # gem 'debugger'
 
 # Move to .gemspec
-gem 'jolokia', git: 'https://github.com/towerhe/jolokia.git'
+gem 'jolokia', git: 'https://github.com/towerhe/jolokia.git', branch: :develop
 
 group :development, :test do
   gem 'yard'
@@ -27,7 +27,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'konacha'
   gem 'dm-sqlite-adapter'
-  gem 'dm-postgres-adapter'
+  gem 'dm-mysql-adapter'
 end
 
 group :test do
