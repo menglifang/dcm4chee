@@ -10,19 +10,21 @@ module Dcm4chee
 
       class << self
         def define_component(name)
+          name = name.to_s
+
           define_method("move_#{name}_to_trash".to_sym) do |id|
             jolokia.execute(MBEAN_NAME,
-                            "move#{name}ToTrash(long)", id)
+                            "move#{name.camelize}ToTrash", id)
           end
 
           define_method("undelete_#{name}".to_sym) do |id|
             jolokia.execute(MBEAN_NAME,
-                            "undelete#{name}(long)", id)
+                            "undelete#{name.camelize}", id)
           end
 
           define_method("delete_#{name}".to_sym) do |id|
             jolokia.execute(MBEAN_NAME,
-                            "delete#{name}(long)", id)
+                            "delete#{name.camelize}", id)
           end
         end
       end
