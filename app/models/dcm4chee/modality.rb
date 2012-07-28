@@ -5,9 +5,15 @@ module Dcm4chee
     attribute :name, String
 
     def self.all
-      Series.modalities.inject([]) do |c, n|
-        c << Modality.new(name: n)
+      modalities = []
+
+      [Series.modalities, TrashedSeries.modalities].each do |names|
+        names.each do |n|
+          modalities << Modality.new(name: n)
+        end
       end
+
+      modalities
     end
   end
 end
