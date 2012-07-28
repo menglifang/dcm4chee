@@ -18,9 +18,6 @@ module Dcm4chee
     # @return [String] DICOM系列实例UID(0020,000E)
     property :series_iuid, Text, field: 'series_iuid'
 
-    # @return [DateTime] 系列创建时间
-    property :created_at, DateTime, field: 'created_time'
-
     # @return [String] DICOM系列号(0020,0011)
     property :series_no, String, field: 'series_no'
 

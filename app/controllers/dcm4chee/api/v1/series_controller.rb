@@ -22,7 +22,6 @@ module Dcm4chee
         #       "id": ...,
         #       "study_id": ...,
         #       "series_iuid": ...,
-        #       "created_at": ...,
         #       "series_no": ...,
         #       "source_aet": ...,
         #       "modality": ...,
