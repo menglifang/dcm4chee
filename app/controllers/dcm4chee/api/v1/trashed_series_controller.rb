@@ -5,7 +5,7 @@ module Dcm4chee
       class TrashedSeriesController < BaseController
         respond_to :json
 
-        # 查询回收站研究系列信息，支持的查询属性有：
+        # 查询回收站研究序列信息，支持的查询属性有：
         #   trashed_study_id     研究编号
         #
         # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
@@ -38,7 +38,7 @@ module Dcm4chee
           respond_with trashed_series: series
         end
 
-        # 将研究系列信息放入回收站（包括相关的实例和文件信息），并记录。
+        # 将研究序列信息放入回收站（包括相关的实例和文件信息），并记录。
         #
         # @example
         #   # 请求
@@ -57,7 +57,7 @@ module Dcm4chee
           head :created
         end
 
-        # 将研究系列信息从回收站中删除
+        # 将研究序列信息从回收站中删除
         #
         # @example
         #   # 请求

@@ -12,7 +12,7 @@ module Dcm4chee
       # @param [Integer] priority DICOM优先级（0：中，1：高，2：低）
       # @param [String]  pid 病人编号
       # @param [Array]   study_iuids 研究实例UIDs
-      # @param [Array]   series_iuids 研究系列实例UIDs
+      # @param [Array]   series_iuids 研究序列实例UIDs
       # @param [Array]   sop_iuids 实例UIDs
       # @param [Integer] scheduled_time 计划时间（距1970-01-01 00:00:00的毫秒数）
       #

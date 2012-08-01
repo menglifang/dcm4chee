@@ -38,7 +38,7 @@ module Dcm4chee
           respond_with trashed_studies: studies
         end
 
-        # 将研究信息放入回收站（包括相关的研究系列、实例和文件信息），并记录。
+        # 将研究信息放入回收站（包括相关的研究序列、实例和文件信息），并记录。
         #
         # @example
         #   # 请求

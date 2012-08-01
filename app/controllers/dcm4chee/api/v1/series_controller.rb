@@ -5,7 +5,7 @@ module Dcm4chee
       class SeriesController < BaseController
         respond_to :json
 
-        # 查询研究系列信息，支持的查询属性有：
+        # 查询研究序列信息，支持的查询属性有：
         #   study_id     研究编号
         #
         # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
@@ -43,7 +43,7 @@ module Dcm4chee
           respond_with series: series
         end
 
-        # 使用回收站中的研究系列信息创建研究系列。
+        # 使用回收站中的研究序列信息创建研究序列。
         #
         # @example
         #   # 请求

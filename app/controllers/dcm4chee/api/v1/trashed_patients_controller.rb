@@ -42,7 +42,7 @@ module Dcm4chee
           respond_with trashed_patients: patients
         end
 
-        # 将病人信息放入回收站（包括相关的研究、系列、实例和文件信息），并记录。
+        # 将病人信息放入回收站（包括相关的研究、序列、实例和文件信息），并记录。
         #
         # @example
         #   # 请求

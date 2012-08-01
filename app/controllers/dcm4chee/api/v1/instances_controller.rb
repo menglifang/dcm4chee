@@ -6,7 +6,7 @@ module Dcm4chee
         respond_to :json
 
         # 查询实例信息，支持的查询属性有：
-        #   series_id     研究系列编号
+        #   series_id     研究序列编号
         #
         # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
         #

@@ -10,7 +10,7 @@ module Dcm4chee
         # 请求参数解释：
         #   destination_aet：目标应用实体，即Dicom对象将被迁移至的应用实体
         #   study_iuids：将被迁移的研究
-        #   series_iuids：将被迁移的研究系列
+        #   series_iuids：将被迁移的研究序列
         #   instance_iuids：将被迁移的实例
         #
         # @example

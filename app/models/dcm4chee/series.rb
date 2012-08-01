@@ -14,10 +14,10 @@ module Dcm4chee
     # @return [Integer] 指向{Study}的外键
     property :study_id, Integer, field: 'study_fk'
 
-    # @return [String] DICOM系列实例UID(0020,000E)
+    # @return [String] DICOM序列实例UID(0020,000E)
     property :series_iuid, Text, field: 'series_iuid'
 
-    # @return [String] DICOM系列号(0020,0011)
+    # @return [String] DICOM序列号(0020,0011)
     property :series_no, String, field: 'series_no'
 
     # @return [String] 源AET
@@ -26,10 +26,10 @@ module Dcm4chee
     # @return [String] DICOM成像设备(0008,0060)
     property :modality, String, field: 'modality'
 
-    # @return [String] DICOM系列描述(0008,103E)
+    # @return [String] DICOM序列描述(0008,103E)
     property :description, Text, field: 'series_desc'
 
-    # @return [Integer] DICOM系列相关的实例数(0020,1209)
+    # @return [Integer] DICOM序列相关的实例数(0020,1209)
     property :num_instances, Integer, field: 'num_instances'
 
     # DICOM实例有效性(0008,0056)

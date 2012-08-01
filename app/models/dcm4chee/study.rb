@@ -29,7 +29,7 @@ module Dcm4chee
     # @return [String] DICOM研究的描述(0008,1030)
     property :description, Text, field: 'study_desc'
 
-    # @return [Integer] DICOM研究包含的系列数(0020,1206)
+    # @return [Integer] DICOM研究包含的序列数(0020,1206)
     property :num_series, Integer, field: 'num_series'
 
     # @return [Integer] DICOM研究包含的实例数(0020,1208)
