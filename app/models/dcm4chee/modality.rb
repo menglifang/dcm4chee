@@ -7,10 +7,8 @@ module Dcm4chee
     def self.all
       modalities = []
 
-      [Series.modalities, TrashedSeries.modalities].each do |names|
-        names.each do |n|
-          modalities << Modality.new(name: n)
-        end
+      ([Series.modalities] + [TrashedSeries.modalities]).uniq.each do |n|
+        modalities << Modality.new(name: n)
       end
 
       modalities
