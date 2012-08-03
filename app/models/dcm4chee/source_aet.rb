@@ -7,7 +7,7 @@ module Dcm4chee
     def self.all
       source_aets = []
 
-      ([Series.source_aets] + [TrashedSeries.source_aets]).uniq.each do |n|
+      (Series.source_aets + TrashedSeries.source_aets).uniq.each do |n|
         source_aets << SourceAet.new(name: n)
       end
 
