@@ -112,7 +112,7 @@ module Dcm4chee
           e.station_name,
           e.institution,
           e.department,
-          e.installed,
+          !!(e.installed),
           true
         ]
 
