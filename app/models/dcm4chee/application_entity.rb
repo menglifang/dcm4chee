@@ -95,24 +95,23 @@ module Dcm4chee
       #
       # @param [Hash] attrs 应用实体的属性
       def create_by_service(attrs = {})
-        e = new(attrs)
         params = [
-          e.title,
-          e.host,
-          e.port,
-          e.cipher_suites,
-          e.patient_id_issuer,
-          e.accession_number_issuer,
-          e.username,
-          e.password,
-          e.fs_group,
-          e.group,
-          e.description,
-          e.wado_url,
-          e.station_name,
-          e.institution,
-          e.department,
-          !!(e.installed),
+          attrs[:title],
+          attrs[:host],
+          attrs[:port],
+          attrs[:cipher_suites],
+          attrs[:patient_id_issuer],
+          attrs[:accession_number_issuer],
+          attrs[:username],
+          attrs[:password],
+          attrs[:fs_group],
+          attrs[:group],
+          attrs[:description],
+          attrs[:wado_url],
+          attrs[:station_name],
+          attrs[:institution],
+          attrs[:department],
+          !!(attrs[:installed]),
           true
         ]
 
