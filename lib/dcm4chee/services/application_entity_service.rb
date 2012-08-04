@@ -3,7 +3,7 @@ module Dcm4chee
   module Service
     class ApplicationEntityService < MBean
 
-      MBEAN_NAME = 'Dcm4chee.archive:service=AE'
+      MBEAN_NAME = 'dcm4chee.archive:service=AE'
 
       # 用于添加应用实体。
       #
@@ -30,7 +30,6 @@ module Dcm4chee
           'java.lang.String',
           'java.lang.String',
           'int',
-          'java.lang.String',
           'java.lang.String',
           'java.lang.String',
           'java.lang.String',
