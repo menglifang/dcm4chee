@@ -31,7 +31,7 @@ module Dcm4chee
     property :username, String, field: 'user_id'
 
     # @return [String] 密码
-    property :password, String, field: 'password'
+    property :password, String, field: 'passwd'
 
     # @return [String] 文件存储系统组
     property :fs_group, String, field: 'fs_group_id', default: 'ONLINE_STORAGE'
