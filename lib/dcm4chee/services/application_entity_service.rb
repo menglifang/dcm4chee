@@ -91,7 +91,6 @@ module Dcm4chee
           'java.lang.String',
           'java.lang.String',
           'java.lang.String',
-          'java.lang.String',
           'boolean',
           'boolean'
         ]
