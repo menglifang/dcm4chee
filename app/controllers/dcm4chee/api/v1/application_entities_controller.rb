@@ -72,10 +72,30 @@ module Dcm4chee
         #
         #   # 响应
         #   HTTP/1.1 201 Created
+        #
+        #   {
+        #     "id": ...,
+        #     "title": ...,
+        #     "host": ...,
+        #     "port": ...,
+        #     "cipher_suites": ...,
+        #     "patient_id_issuer": ...,
+        #     "accession_number_issuer": ...,
+        #     "username": ...,
+        #     "password": ...,
+        #     "fs_group": ...,
+        #     "group": ...,
+        #     "description": ...,
+        #     "wado_url": ...,
+        #     "station_name": ...,
+        #     "institution": ...,
+        #     "department": ...,
+        #     "installed": ...
+        #   }
         def create
-          Dcm4chee::ApplicationEntity.create_by_service(params[:application_entity])
+          entity = Dcm4chee::ApplicationEntity.create_by_service(params[:application_entity])
 
-          head :created
+          render json: entity, status: :created
         end
 
         # 更新应用实体
@@ -108,11 +128,31 @@ module Dcm4chee
         #
         #   # 响应
         #   HTTP/1.1 200 OK
+        #
+        #   {
+        #     "id": ...,
+        #     "title": ...,
+        #     "host": ...,
+        #     "port": ...,
+        #     "cipher_suites": ...,
+        #     "patient_id_issuer": ...,
+        #     "accession_number_issuer": ...,
+        #     "username": ...,
+        #     "password": ...,
+        #     "fs_group": ...,
+        #     "group": ...,
+        #     "description": ...,
+        #     "wado_url": ...,
+        #     "station_name": ...,
+        #     "institution": ...,
+        #     "department": ...,
+        #     "installed": ...
+        #   }
         def update
           entity = Dcm4chee::ApplicationEntity.get!(params[:id])
           entity.update_by_service(params[:application_entity])
 
-          head :ok
+          render json: entity, status: :ok
         end
 
         # 删除应用实体

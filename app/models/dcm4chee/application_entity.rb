@@ -81,8 +81,10 @@ module Dcm4chee
         attrs[:installed] || installed,
         true
       ]
-
       Dcm4chee.application_entity_service.update_ae(params)
+      reload
+
+      self
     end
 
     # 通过dcm4chee发布的服务（AEService）删除应用实体
@@ -114,8 +116,9 @@ module Dcm4chee
           !!(attrs[:installed]),
           true
         ]
-
         Dcm4chee.application_entity_service.add_ae(params)
+
+        first(title: attrs[:title])
       end
 
       def repository(name = nil, &block)
