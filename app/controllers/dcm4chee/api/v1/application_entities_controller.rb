@@ -37,7 +37,7 @@ module Dcm4chee
         #     }, ...]
         #   }
         def index
-          entities = Dcm4chee::ApplicationEntity.all
+          entities = Dcm4chee::ApplicationEntity.all(order: [:id.desc])
 
           respond_with application_entities: entities
         end
