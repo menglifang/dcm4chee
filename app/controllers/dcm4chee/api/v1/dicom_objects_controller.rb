@@ -34,6 +34,8 @@ module Dcm4chee
             params[:series_iuids],
             params[:instance_iuids]
           )
+
+          head :ok
         end
 
         private
