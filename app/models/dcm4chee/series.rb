@@ -46,8 +46,19 @@ module Dcm4chee
     belongs_to :study, 'Dcm4chee::Study'
     has n, :instances, 'Dcm4chee::Instance'
 
+    def study_iuid
+      study.study_iuid
+    end
+
     def move_to_trash
       Dcm4chee.content_edit_service.move_series_to_trash(id)
+    end
+
+    def as_json(opts = {})
+      opts[:methods] ||= []
+      opts[:methods] << :study_iuid
+
+      super(opts)
     end
 
     class << self

@@ -21,6 +21,7 @@ module Dcm4chee
         #     "series": [{
         #       "id": ...,
         #       "study_id": ...,
+        #       "study_iuid": ...,
         #       "series_iuid": ...,
         #       "series_no": ...,
         #       "source_aet": ...,
