@@ -21,8 +21,17 @@ module Dcm4chee
         #   {
         #     "destination_aet": ...,
         #     "study_iuids": [...],
-        #     "series_iuids": { "...": [...], ... },
-        #     "instance_iuids": { "...": { "...": [...], ... }, ... }
+        #     "series_iuids": {
+        #       "...": [...],
+        #       ...
+        #     },
+        #     "instance_iuids": {
+        #       "...": {
+        #         "...": [...],
+        #         ...
+        #       },
+        #       ...
+        #     }
         #   }
         #
         #   # 响应
