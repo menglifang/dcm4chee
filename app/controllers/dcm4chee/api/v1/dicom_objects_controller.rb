@@ -15,7 +15,7 @@ module Dcm4chee
         #
         # @example
         #   # 请求
-        #   POST /api/dicom_objects HTTP/1.1
+        #   POST /api/dicom_objects/move HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
         #   {
