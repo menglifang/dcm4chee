@@ -1,13 +1,22 @@
 module Dcm4chee
   class DicomObjectManager
     def move(dest_aet, study_iuids, series_iuids, instance_iuids)
-      move_studies(dest_aet, study_iuids)
+      Dcm4chee.move_scu_service.schedule_move(
+        nil,
+        dest_aet,
+        0,
+        nil,
+        study_iuids,
+        series_iuids,
+        instance_iuids
+      )
+      #move_studies(dest_aet, study_iuids)
 
-      series_iuids.each { |k, v| move_series(dest_aet, k, v) }
+      #series_iuids.each { |k, v| move_series(dest_aet, k, v) }
 
-      instance_iuids.each do |key, val|
-        val.each { |k, v| move_instances(dest_aet, key, k, v) }
-      end
+      #instance_iuids.each do |key, val|
+        #val.each { |k, v| move_instances(dest_aet, key, k, v) }
+      #end
     end
 
     private
