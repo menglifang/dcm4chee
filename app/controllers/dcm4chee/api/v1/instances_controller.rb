@@ -5,17 +5,18 @@ module Dcm4chee
       class InstancesController < BaseController
         respond_to :json
 
-        # 查询实例信息，支持的查询属性有：
-        #   series_id     研究序列编号
+        # Search for instances. Supported querying conditions:
+        #   series_id     ID of a series
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/instances?q[series_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "instances": [{
@@ -43,17 +44,17 @@ module Dcm4chee
           respond_with instances: instances
         end
 
-        # 使用回收站中的实例信息创建实例。
+        # Restore an instance from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/instances HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "trashed_instance_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           trashed_instance = TrashedInstance.get!(params[:trashed_instance_id])

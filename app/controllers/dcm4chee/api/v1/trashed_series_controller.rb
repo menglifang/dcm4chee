@@ -5,17 +5,19 @@ module Dcm4chee
       class TrashedSeriesController < BaseController
         respond_to :json
 
-        # 查询回收站研究序列信息，支持的查询属性有：
-        #   trashed_study_id     研究编号
+        # Search for series from the trash. Supported querying
+        # conditions:
+        #   trashed_study_id
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/trashed_series?q[trashed_study_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "trashed_series": [{
@@ -38,17 +40,18 @@ module Dcm4chee
           respond_with trashed_series: series
         end
 
-        # 将研究序列信息放入回收站（包括相关的实例和文件信息），并记录。
+        # Move a series to the trash including the related instances and
+        # files.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/trashed_series HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "series_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           series = Series.get!(params[:series_id])
@@ -57,14 +60,14 @@ module Dcm4chee
           head :created
         end
 
-        # 将研究序列信息从回收站中删除
+        # Delete a series from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   DELETE /api/trashed_series/... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         def destroy
           series = TrashedSeries.get!(params[:id])

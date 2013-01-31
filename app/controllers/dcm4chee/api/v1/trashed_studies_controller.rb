@@ -5,17 +5,19 @@ module Dcm4chee
       class TrashedStudiesController < BaseController
         respond_to :json
 
-        # 查询回收站中研究信息，支持的查询属性有：
-        #   trashed_patient_id     病人编号
+        # Search for studies from the trash. Supported querying
+        # conditions:
+        #   trashed_patient_id
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/trashed_studies?q[trashed_patient_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "trashed_studies": [{
@@ -38,17 +40,17 @@ module Dcm4chee
           respond_with trashed_studies: studies
         end
 
-        # 将研究信息放入回收站（包括相关的研究序列、实例和文件信息），并记录。
+        # Move a study to the trash including the related series, instances and files.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/trashed_studies HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "study_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           study = Study.get!(params[:study_id])
@@ -57,14 +59,14 @@ module Dcm4chee
           head :created
         end
 
-        # 将研究信息从回收站中删除
+        # Delete a study from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   DELETE /api/trashed_studies/... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         def destroy
           study = TrashedStudy.get!(params[:id])

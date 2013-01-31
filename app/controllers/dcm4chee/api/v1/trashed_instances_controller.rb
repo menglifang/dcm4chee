@@ -5,17 +5,19 @@ module Dcm4chee
       class TrashedInstancesController < BaseController
         respond_to :json
 
-        # 查询回收站实例信息，支持的查询属性有：
-        #   trashed_series_id     研究序列编号
+        # Search for instances from the trash. Supported querying
+        # conditions:
+        #   trashed_series_id
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/trashed_instances?q[trashed_series_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "trashed_instances": [{
@@ -40,17 +42,17 @@ module Dcm4chee
           respond_with trashed_instances: instances
         end
 
-        # 将实例信息放入回收站（包括相关的文件信息），并记录。
+        # Move a instance to the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/trashed_instances HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "instance_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           instance = Instance.get!(params[:instance_id])
@@ -59,14 +61,14 @@ module Dcm4chee
           head :created
         end
 
-        # 将实例信息从回收站中删除
+        # Delete an instance from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   DELETE /api/trashed_instances/... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         def destroy
           instance = TrashedInstance.get!(params[:id])

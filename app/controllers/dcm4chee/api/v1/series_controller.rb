@@ -5,17 +5,18 @@ module Dcm4chee
       class SeriesController < BaseController
         respond_to :json
 
-        # 查询研究序列信息，支持的查询属性有：
-        #   study_id     研究编号
+        # Search for series. Supported querying conditions:
+        #   study_id
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/series?q[study_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "series": [{
@@ -44,17 +45,17 @@ module Dcm4chee
           respond_with series: series
         end
 
-        # 使用回收站中的研究序列信息创建研究序列。
+        # Restore a series from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/series HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "trashed_series_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           trashed_series = TrashedSeries.get!(params[:trashed_series_id])

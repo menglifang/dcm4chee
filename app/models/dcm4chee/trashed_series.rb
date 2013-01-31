@@ -8,16 +8,16 @@ module Dcm4chee
 
     storage_names[Dcm4chee.config.repository_name] = 'priv_series'
 
-    # @return [Integer] 主键
+    # @return [Integer] primary key
     property :id, Serial, field: 'pk'
 
-    # @return [Integer] 指向{Study}的外键
+    # @return [Integer] foreign key of {Study}
     property :trashed_study_id, Integer, field: 'study_fk'
 
-    # @return [String] DICOM序列实例UID(0020,000E)
+    # @return [String] DICOM Series Instance UID(0020,000E)
     property :series_iuid, Text, field: 'series_iuid'
 
-    # @return [String] 源AET
+    # @return [String] Source AET
     property :source_aet, String, field: 'src_aet'
 
     dicom_field 'series_attrs'

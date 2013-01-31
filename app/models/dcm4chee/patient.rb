@@ -8,25 +8,25 @@ module Dcm4chee
 
     storage_names[Dcm4chee.config.repository_name] = 'patient'
 
-    # @return [Integer] 主键
+    # @return [Integer] primary key
     property :id, Serial, field: 'pk'
 
-    # @return [Integer] 病人编号
+    # @return [Integer] ID of the patient
     property :pid, String, field: 'pat_id'
 
-    # @return [String] 病人编号授予者
+    # @return [String] Issuer of the patient id
     property :pid_issuer, String, field: 'pat_id_issuer'
 
-    # @return [String] 病人姓名
+    # @return [String] patient name
     property :name, String, field: 'pat_name'
 
-    # @return [String] 病人生日
+    # @return [String] birthday
     property :birthday, String, field: 'pat_birthdate'
 
-    # @return [String] 病人性别
+    # @return [String] gender
     property :gender, String, field: 'pat_sex'
 
-    # @return [String] 病人DICOM信息
+    # @return [String] DICOM attributes
     dicom_field 'pat_attrs'
 
     has n, :studies, 'Dcm4chee::Study'

@@ -5,27 +5,28 @@ module Dcm4chee
       class PatientsController < BaseController
         respond_to :json
 
-        # 查询病人信息，支持的查询属性有：
-        #   name                      病人姓名
-        #   pid                       病人编号
-        #   pid_issuer                病人编号授予者
-        #   studies.study_at          研究时间
-        #   studies.accession_no      登记号
-        #   studies.series.modality   成像设备
-        #   studies.series.source_aet 源AET
+        # Search for patients. Supported querying conditions:
+        #   name
+        #   pid
+        #   pid_issuer
+        #   studies.study_at
+        #   studies.accession_no
+        #   studies.series.modality
+        #   studies.series.source_aet
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
-        # 分页查询参数：
-        #   page    请求的页码，缺省值1
-        #   limit   每页记录数，缺省值20
+        # pagination:
+        #   page    # default 1
+        #   limit   # default 20
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/patients?q[name.like]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "page": ...,
@@ -53,17 +54,17 @@ module Dcm4chee
           render json: { patients: patients, total: patients.pager.total }
         end
 
-        # 使用回收站中的病人信息创建病人。
+        # Restore a patient from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/patients HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "trashed_patient_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           trashed_patient = TrashedPatient.get!(params[:trashed_patient_id])

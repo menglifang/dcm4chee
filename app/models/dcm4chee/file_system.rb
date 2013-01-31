@@ -5,13 +5,13 @@ module Dcm4chee
 
     storage_names[Dcm4chee.config.repository_name] = 'filesystem'
 
-    # @return [Integer] 主键
+    # @return [Integer] primary key
     property :id, Serial, field: 'pk'
 
-    # @return [String] 文件存储的路径
+    # @return [String] path of the directory
     property :path, String, field: 'dirpath'
 
-    # @return [Integer] 文件存储类型
+    # @return [Integer] type of the file system
     #   0: ONLINE
     #   1: NEARLINE
     #   2: OFFLINE
@@ -20,7 +20,7 @@ module Dcm4chee
     has n, :dicom_files, 'Dcm4chee::DicomFile'
     has n, :trashed_dicom_files, 'Dcm4chee::TrashedDicomFile'
 
-    # 检测配置的文件系统路径是相对路径还是绝对路径，相对路径默认指向`#{Dcm4chee.config.server_home}/server/default`
+    # Check whether the path is relative or absolute. The default path of the relative one is `#{Dcm4chee.config.server_home}/server/default`
     def path
       p = self[:path]
 
@@ -31,37 +31,37 @@ module Dcm4chee
       File.join(Dcm4chee.config.server_home, 'server/default', p)
     end
 
-    # @return [Integer] 文件存储系统总空间大小（字节）
+    # @return [Integer] Total space of the file system(in bytes)
     def total_space
       status.block_size * status.blocks
     end
 
-    # @return [Integer] 文件存储系统可用空间大小（字节）
+    # @return [Integer] Available space of the file system(in bytes)
     def free_space
       status.block_size * status.blocks_available
     end
 
-    # @return [Integer] 文件存储系统已用空间大小（字节）
+    # @return [Integer] Used space of the file system(in bytes)
     def used_space
       total_space - free_space
     end
 
-    # @return [Integer] 文件存储系统最小空间大小（字节）。当文件系统可用空间小于该最小值时，系统将自动采用下一可用的文件存储空间。
+    # @return [Integer] Minimum free space of the file system. If the free space is under the limit, dcm4chee will use the next one instead.
     def min_free_space
       @min_free_space ||= Dcm4chee.file_system_management.minimum_free_disk_space_bytes
     end
 
-    # @return [Integer] 平均每天可能使用的空间大小（字节）
+    # @return [Integer] Expected space per day(in bytes)
     def expected_space_per_day
       @expected_space_per_day ||= Dcm4chee.file_system_management.expected_data_volume_per_day_bytes
     end
 
-    # @return [Integer] 文件存储系统大约可用的天数
+    # @return [Integer] Remaining days of the file system
     def remaining_days
       @remaining_days ||= (free_space - min_free_space) / expected_space_per_day
     end
 
-    # @return [Hash] 表示该模型对象的JSON结构
+    # @return [Hash] Serialized data
     def as_json(opts = {})
       opts[:exclude] ||= []
       opts[:exclude] << :availability
@@ -75,7 +75,7 @@ module Dcm4chee
     end
 
     class << self
-      # @return [DataMapper::Collection] 所有在线文件存储系统
+      # @return [DataMapper::Collection] All online file systems
       def online
         all(availability: 0)
       end
@@ -87,7 +87,7 @@ module Dcm4chee
 
     private
 
-    # @return [Sys::Filesystem] 文件存储系统状态
+    # @return [Sys::Filesystem] Status of the file system
     def status
       @status ||= Sys::Filesystem.stat(path)
     end

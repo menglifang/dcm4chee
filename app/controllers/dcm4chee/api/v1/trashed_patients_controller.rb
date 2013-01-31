@@ -5,21 +5,23 @@ module Dcm4chee
       class TrashedPatientsController < BaseController
         respond_to :json
 
-        # 查询回收站中病人信息，支持的查询属性有：
-        #   name                              病人姓名
-        #   pid                               病人编号
-        #   pid_issuer                        病人编号授予者
-        #   trashed_studies.accession_no      登记号
-        #   trashed_studies.series.source_aet 源AET
+        # Search for patients from the trash. Supported querying
+        # conditions:
+        #   name
+        #   pid
+        #   pid_issuer
+        #   trashed_studies.accession_no
+        #   trashed_studies.series.source_aet
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/trashed_patients?q[name.like]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "trashed_patients": [{
@@ -42,17 +44,17 @@ module Dcm4chee
           respond_with trashed_patients: patients
         end
 
-        # 将病人信息放入回收站（包括相关的研究、序列、实例和文件信息），并记录。
+        # Move a patient to the trash including the related studies, series, instances and files.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/trashed_patients HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "patient_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           patient = Patient.get!(params[:patient_id])
@@ -61,14 +63,14 @@ module Dcm4chee
           head :created
         end
 
-        # 将病人信息从回收站中删除
+        # Delete a patient from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   DELETE /api/trashed_patients/... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         def destroy
           patient = TrashedPatient.get!(params[:id])

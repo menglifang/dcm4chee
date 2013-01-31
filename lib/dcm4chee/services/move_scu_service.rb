@@ -5,18 +5,18 @@ module Dcm4chee
 
       MBEAN_NAME = 'dcm4chee.archive:service=MoveScu'
 
-      # 迁移数据到指定的应用实体
+      # Move data to AE
       #
-      # @param [String]  retrieve_aet 调用的应用实体
-      # @param [String]  dest_aet 目的应用实体
-      # @param [Integer] priority DICOM优先级（0：中，1：高，2：低）
-      # @param [String]  pid 病人编号
-      # @param [Array]   study_iuids 研究实例UIDs
-      # @param [Array]   series_iuids 研究序列实例UIDs
-      # @param [Array]   sop_iuids 实例UIDs
-      # @param [Integer] scheduled_time 计划时间（距1970-01-01 00:00:00的毫秒数）
+      # @param [String]  retrieve_aet
+      # @param [String]  dest_aet
+      # @param [Integer] priority DICOM priority(0: Medium, 1: High, 2: Low)
+      # @param [String]  pid
+      # @param [Array]   study_iuids
+      # @param [Array]   series_iuids
+      # @param [Array]   sop_iuids
+      # @param [Integer] scheduled_time(milliseconds from 1970-01-01 00:00:00)
       #
-      # @return [Hash] 执行结果
+      # @return [Hash] Result
       def schedule_move(retrieve_aet,
                         dest_aet,
                         priority,

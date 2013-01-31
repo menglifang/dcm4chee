@@ -8,16 +8,16 @@ module Dcm4chee
 
     storage_names[Dcm4chee.config.repository_name] = 'instance'
 
-    # @return [Integer] 主键
+    # @return [Integer] primary key
     property :id, Serial, field: 'pk'
 
-    # @return [Integer] 指向{Series}的外键
+    # @return [Integer] foreign key of {Series}
     property :series_id, Integer, field: 'series_fk'
 
-    # @return [DateTime] 实例创建时间
+    # @return [DateTime] created time
     property :created_at, DateTime, field: 'created_time'
 
-    # @return [String] DICOM实例号(0020,0013)
+    # @return [String] DICOM Instance NO(0020,0013)
     property :instance_no, String, field: 'inst_no'
 
     # @return [String] DICOM SOP Instance UID(0008,0018)
@@ -26,16 +26,16 @@ module Dcm4chee
     # @return [String] DICOM SOP Class UID(0008,0016)
     property :sop_cuid, Text, field: 'sop_cuid'
 
-    # DICOM实例有效新(0008,0056)
+    # DICOM Instance Availability(0008,0056)
     #   0: ONLINE
     #   1: NEARLINE
     #   2: OFFLINE
     #   3: UNAVAILABLE
     #
-    # @return [Integer] 实例有效新(0008,0056)
+    # @return [Integer] DICOM Integer Availability
     property :availability, Enum[0, 1, 2, 3], field: 'availability'
 
-    # TODO 增加description属性
+    # TODO Added description
 
     dicom_field 'inst_attrs'
 

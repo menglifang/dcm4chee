@@ -5,14 +5,14 @@ module Dcm4chee
       class ApplicationEntitiesController < BaseController
         respond_to :json
 
-        # 列出所有的应用实体
+        # List the application entities
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/application_entities HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "application_entities": [{
@@ -42,10 +42,10 @@ module Dcm4chee
           respond_with application_entities: entities
         end
 
-        # 创建新的应用实体
+        # Create a new application entity
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/application_entities HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
@@ -70,7 +70,7 @@ module Dcm4chee
         #     }
         #   }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         #
         #   {
@@ -98,10 +98,10 @@ module Dcm4chee
           render json: entity, status: :created
         end
 
-        # 更新应用实体
+        # Update an application entity
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/application_entities/... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
@@ -126,7 +126,7 @@ module Dcm4chee
         #     }
         #   }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #
         #   {
@@ -155,14 +155,14 @@ module Dcm4chee
           render json: entity, status: :ok
         end
 
-        # 删除应用实体
+        # Delete an application entity
         #
         # @example
-        #   # 请求
+        #   # Request
         #   DELETE /api/application_entities/... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         def destroy
           entity = Dcm4chee::ApplicationEntity.get!(params[:id])

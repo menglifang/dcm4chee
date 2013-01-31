@@ -8,13 +8,13 @@ module Dcm4chee
 
     storage_names[Dcm4chee.config.repository_name] = 'priv_instance'
 
-    # @return [Integer] 主键
+    # @return [Integer] primary key
     property :id, Serial, field: 'pk'
 
-    # @return [Integer] 指向{Series}的外键
+    # @return [Integer] foreign key of {Series}
     property :trashed_series_id, Integer, field: 'series_fk'
 
-    # @return [DateTime] 实例创建时间
+    # @return [DateTime] created time
     property :created_at, DateTime, field: 'created_time'
 
     # @return [String] DICOM SOP Instance UID(0008,0018)

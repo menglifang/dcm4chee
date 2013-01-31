@@ -5,17 +5,18 @@ module Dcm4chee
       class StudiesController < BaseController
         respond_to :json
 
-        # 查询研究信息，支持的查询属性有：
-        #   patient_id     病人编号
+        # Search for studies. Suppported querying conditions:
+        #   patient_id
         #
-        # 支持的查询操作参见{DataMapper::Searcher::ClassMethods}
+        # Check {DataMapper::Searcher::ClassMethods} for supported
+        # querying operators.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/studies?q[patient_id]=... HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         #   {
         #     "studies": [{
@@ -44,17 +45,17 @@ module Dcm4chee
           respond_with studies: studies
         end
 
-        # 使用回收站中的研究信息创建研究。
+        # Restore a study from the trash.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/studies HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #   Content-Type: application/json
         #
         #   { "trashed_studies_id": ... }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 201 Created
         def create
           trashed_studies = TrashedStudy.get!(params[:trashed_study_id])

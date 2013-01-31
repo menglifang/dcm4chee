@@ -5,16 +5,16 @@ module Dcm4chee
       class DicomObjectsController < BaseController
         respond_to :json
 
-        # 迁移指定的DICOM对象
+        # Move dicom objects
         #
-        # 请求参数解释：
-        #   destination_aet：目标应用实体，即Dicom对象将被迁移至的应用实体
-        #   study_iuids：将被迁移的研究
-        #   series_iuids：将被迁移的研究序列
-        #   instance_iuids：将被迁移的实例
+        # Arguments:
+        #   destination_aet: The application entity which the dicom objects will be moved to.
+        #   study_iuids:     The studies will be moved.
+        #   series_iuids:    The series will be moved.
+        #   instance_iuids： The instances will be moved.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   POST /api/dicom_objects/move HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
@@ -34,7 +34,7 @@ module Dcm4chee
         #     }
         #   }
         #
-        #   # 响应
+        #   # Response
         #   HTTP/1.1 200 OK
         def move
           dicom_object_manager.move(

@@ -5,61 +5,61 @@ module Dcm4chee
 
     storage_names[Dcm4chee.config.repository_name] = 'ae'
 
-    # @return [Integer] 主键
+    # @return [Integer] primary key
     property :id, Serial, field: 'pk'
 
-    # @return [String] 名称
+    # @return [String] name
     property :title, String, field: 'aet'
 
-    # @return [String] 主机名称/IP地址
+    # @return [String] hostname or ip address
     property :host, String, field: 'hostname'
 
-    # @return [Integer] 端口
+    # @return [Integer] port
     property :port, Integer, field: 'port'
 
-    # @return [String] 密码组，取值：SSL_RSA_WITH_NULL_SHA，TLS_RSA_WITH_AES_128_CBC_SHA， SSL_RSA_WITH_3DES_EDE_CBC_SHA
-    #   如果指定多个密码，密码之间用逗号分割。
+    # @return [String] cipher_suites, available values:SSL_RSA_WITH_NULL_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, SSL_RSA_WITH_3DES_EDE_CBC_SHA
+    #   Multi-suites should be specified in comma-separated format.
     property :cipher_suites, String, field: 'cipher_suites'
 
-    # @return [String] 病人ID创建者
+    # @return [String] issuer of the patient id
     property :patient_id_issuer, String, field: 'pat_id_issuer'
 
-    # @return [String] 登记号创建者
+    # @return [String] issuer of the accession number
     property :accession_number_issuer, String, field: 'acc_no_issuer'
 
-    # @return [String] 用户名
+    # @return [String] username
     property :username, String, field: 'user_id'
 
-    # @return [String] 密码
+    # @return [String] password
     property :password, String, field: 'passwd'
 
-    # @return [String] 文件存储系统组
+    # @return [String] group of the file system
     property :fs_group, String, field: 'fs_group_id', default: 'ONLINE_STORAGE'
 
-    # @return [String] 分组
+    # @return [String] group of the application entity
     property :group, String, field: 'ae_group'
 
-    # @return [String] 描述
+    # @return [String] description
     property :description, String, field: 'ae_desc'
 
-    # @return [String] WADO地址
+    # @return [String] url of WADO
     property :wado_url, String, field: 'wado_url'
 
-    # @return [String] 所属站名称
+    # @return [String] station name
     property :station_name, String, field: 'station_name'
 
-    # @return [String] 所属机构名称
+    # @return [String] institution
     property :institution, String, field: 'institution'
     
-    # @return [String] 所属部门名称
+    # @return [String] department
     property :department, String, field: 'department'
 
-    # @return [String] 是否已经安装
+    # @return [String] installed or not
     property :installed, String, field: 'installed'
 
-    # 通过dcm4chee发布的服务（AEService）更新应用实体
+    # Update an application entity through AEService of dcm4chee.
     #
-    # @param [Hash] attrs 应用实体的属性
+    # @param [Hash] attrs Attributes of the application entity
     def update_by_service(attrs = {})
       params = [
         id,
@@ -87,15 +87,15 @@ module Dcm4chee
       self
     end
 
-    # 通过dcm4chee发布的服务（AEService）删除应用实体
+    # Delete an application entity through AEService of dcm4chee
     def destroy_by_service
       Dcm4chee.application_entity_service.remove_ae(title)
     end
 
     class << self
-      # 通过dcm4chee发布的服务（AEService）创建应用实体
+      # Create an application entity through AEService of dcm4chee.
       #
-      # @param [Hash] attrs 应用实体的属性
+      # @param [Hash] attrs Attributes of the new application entity
       def create_by_service(attrs = {})
         params = [
           attrs[:title],

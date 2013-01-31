@@ -1,33 +1,35 @@
 ## Dcm4chee
 
-Dcm4chee是一个[Rails
-Engine](http://api.rubyonrails.org/classes/Rails/Engine.html),为[Dcm4chee](http://www.dcm4chee.org)提供基于RESTful的Web APIs。
+dcm4chee is a [rails
+engine](http://api.rubyonrails.org/classes/Rails/Engine.html),为[Dcm4chee](http://www.dcm4chee.org)
+which provides RESTful APIs for the most famous
+[dcm4chee](http://www.dcm4che.org).
 
-### 安装说明
+### Installation
 
-在Gemfile中添加dcm4chee：
+Add the dcm4chee to your Gemfile.
 
 ```ruby
 gem 'dcm4chee'
 ```
 
-执行`bundle install`安装。
+And then, run `bundle install` to install. That's it.
 
-### 开发说明
+### Development
 
-#### 查看文档
+#### Check the docs
 
 ```bash
-# 生成项目文档
+# Generated the docs
 yardoc
 
-# 启动文档服务器
+# Start a web server for serving the docs
 yard server
 
-# 通过浏览器查看文档，http://localhost:8808
+# Visit http://localhost:8808
 ```
 
-#### 单元测试
+#### Tests
 
 ```bash
 bundle exec rspec

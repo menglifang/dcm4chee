@@ -5,10 +5,10 @@ module Dcm4chee
       class FileSystemsController < BaseController
         respond_to :json
 
-        # 列出所有文件存储系统，及其空间使用状态。
+        # List the file systems including the status of them.
         #
         # @example
-        #   # 请求
+        #   # Request
         #   GET /api/file_systems HTTP/1.1
         #   Accept: application/vnd.menglifang.s2pms.v1
         #
