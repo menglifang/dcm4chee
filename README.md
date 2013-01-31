@@ -1,7 +1,7 @@
 ## Dcm4chee
 
 dcm4chee is a [rails
-engine](http://api.rubyonrails.org/classes/Rails/Engine.html),为[Dcm4chee](http://www.dcm4chee.org)
+engine](http://api.rubyonrails.org/classes/Rails/Engine.html) 
 which provides RESTful APIs for the most famous
 [dcm4chee](http://www.dcm4che.org).
 
