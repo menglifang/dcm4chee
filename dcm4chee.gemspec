@@ -16,12 +16,13 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib}/**/*"] + ["Rakefile", "README.md"]
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", "~> 3.2.6"
+  s.add_dependency "rails", "~> 3.2.11"
   s.add_dependency "confstruct", "~> 0.2.3"
-  s.add_dependency "virtus", "~> 0.5.1"
+  s.add_dependency "virtus", "~> 0.5.4"
   s.add_dependency "dicom", "~> 0.9.3"
-  s.add_dependency "sys-filesystem", "~> 1.0.0"
+  s.add_dependency "sys-filesystem", "~> 1.1"
   s.add_dependency "hex_string", "~> 1.0.0"
-  s.add_dependency "dm-searcher", "~> 0.1.0"
+  s.add_dependency "dm-searcher", "~> 0.1.3"
   s.add_dependency "dm-pager", "~> 1.1.0"
+  s.add_dependency "jolokia", "~> 0.1.0"
 end

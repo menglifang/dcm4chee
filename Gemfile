@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
 
 # Declare your gem's dependencies in dcm4chee.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -16,9 +16,6 @@ gem 'dm-rails'
 
 # To use debugger
 # gem 'debugger'
-
-# Move to .gemspec
-gem 'jolokia', git: 'https://github.com/towerhe/jolokia.git', branch: :develop
 
 group :development, :test do
   gem 'yard'
