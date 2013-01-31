@@ -24,4 +24,5 @@ Gem::Specification.new do |s|
   s.add_dependency "hex_string", "~> 1.0.0"
   s.add_dependency "dm-searcher", "~> 0.1.3"
   s.add_dependency "dm-pager", "~> 1.1.0"
+  s.add_dependency "jolokia", "~> 0.1.0"
 end

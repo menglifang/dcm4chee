@@ -17,9 +17,6 @@ gem 'dm-rails'
 # To use debugger
 # gem 'debugger'
 
-# Move to .gemspec
-gem 'jolokia', git: 'https://github.com/towerhe/jolokia.git', branch: :develop
-
 group :development, :test do
   gem 'yard'
   gem 'redcarpet'
