@@ -7,6 +7,8 @@ which provides RESTful APIs for the most famous
 
 ### Installation
 
+The engine interfaces with the dcm4chee archive through Jolokia (http://www.jolokia.org/), which provides a JMX interface with JSON over HTTP. To install Jolokia, simply download the .war and drop it in your archive's /server/default/deploy directory.
+
 Add the dcm4chee to your Gemfile.
 
 ```ruby
