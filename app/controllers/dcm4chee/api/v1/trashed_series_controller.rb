@@ -15,7 +15,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   GET /api/trashed_series?q[trashed_study_id]=... HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
+        #   Accept: application/vnd.menglifang.org; version=1
         #
         #   # Response
         #   HTTP/1.1 200 OK
@@ -46,7 +46,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   POST /api/trashed_series HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
+        #   Accept: application/vnd.menglifang.org; version=1
         #   Content-Type: application/json
         #
         #   { "series_id": ... }
@@ -65,7 +65,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   DELETE /api/trashed_series/... HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
+        #   Accept: application/vnd.menglifang.org; version=1
         #
         #   # Response
         #   HTTP/1.1 200 OK

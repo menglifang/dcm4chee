@@ -6,7 +6,7 @@ module Dcm4chee
     end
 
     def matches?(req)
-      @default || req.headers['Accept'].include?("application/vnd.menglifang.v#{@version}")
+      @default || req.headers['Accept'].include?("application/vnd.menglifang.org; version=#{@version}")
     end
   end
 end

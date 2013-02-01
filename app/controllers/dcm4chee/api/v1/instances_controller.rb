@@ -14,7 +14,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   GET /api/instances?q[series_id]=... HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
+        #   Accept: application/vnd.menglifang.org; version=1
         #
         #   # Response
         #   HTTP/1.1 200 OK
@@ -49,7 +49,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   POST /api/instances HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
+        #   Accept: application/vnd.menglifang.org; version=1
         #   Content-Type: application/json
         #
         #   { "trashed_instance_id": ... }

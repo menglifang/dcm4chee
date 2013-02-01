@@ -24,7 +24,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   GET /api/patients?q[name.like]=... HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
+        #   Accept: application/vnd.menglifang.org; version=1
         #
         #   # Response
         #   HTTP/1.1 200 OK
@@ -59,8 +59,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   POST /api/patients HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
-        #   Content-Type: application/json
+        #   Accept: application/vnd.menglifang.org; version=1
         #
         #   { "trashed_patient_id": ... }
         #

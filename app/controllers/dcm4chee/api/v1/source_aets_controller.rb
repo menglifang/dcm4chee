@@ -9,7 +9,7 @@ module Dcm4chee
         # @example
         #   # Request
         #   GET /api/source_aets HTTP/1.1
-        #   Accept: application/vnd.menglifang.s2pms.v1
+        #   Accept: application/vnd.menglifang.org; version=1
         #
         #   # Response
         #   HTTP/1.1 200 OK
