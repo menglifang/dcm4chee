@@ -19,11 +19,13 @@ gem 'dm-rails'
 
 group :development, :test do
   gem 'yard'
-  gem 'redcarpet'
+  gem 'kramdown'
   gem 'pry'
   gem 'rspec-rails'
   gem 'konacha'
+  # For development
   gem 'dm-sqlite-adapter'
+  # Connect to the database of dcm4chee server
   gem 'dm-mysql-adapter'
 end
 
