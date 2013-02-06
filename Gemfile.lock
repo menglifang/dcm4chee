@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dcm4chee (0.0.1)
+    dcm4chee (0.1.0)
       confstruct (~> 0.2.3)
       dicom (~> 0.9.3)
       dm-pager (~> 1.1.0)
@@ -46,7 +46,6 @@ GEM
     arel (3.0.2)
     backports (2.6.7)
     bcrypt-ruby (3.0.1)
-    bcrypt-ruby (3.0.1-java)
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
