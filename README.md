@@ -1,5 +1,9 @@
 ## Dcm4chee
 
+[![Build Status](https://secure.travis-ci.org/menglifang/dcm4chee?branch=develop)](http://travis-ci.org/menglifang/dcm4chee)
+[![Dependency Status](https://gemnasium.com/menglifang/dcm4chee.png)](https://gemnasium.com/menglifang/dcm4chee)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/menglifang/dcm4chee)
+
 dcm4chee is a [rails
 engine](http://api.rubyonrails.org/classes/Rails/Engine.html) 
 which provides RESTful APIs for the most famous
