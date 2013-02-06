@@ -1,0 +1,6 @@
+rvm:
+  - "1.9.3"
+  - jruby-19mode
+script:
+  - RAILS_ENV=test bundle exec rake -f spec/dummy/Rakefile db:migrate --trace
+  - bundle exec rspec

@@ -1,0 +1,14 @@
+sqlite3_defaults: &sqlite3_defaults
+  adapter: sqlite3
+
+development:
+  database: ./db/dcm4chee_development.sqlite3
+  <<: *sqlite3_defaults
+
+test:
+  database: ./db/dcm4chee_development.sqlite3
+  <<: *sqlite3_defaults
+
+production:
+  database: ./db/dcm4chee_development.sqlite3
+  <<: *sqlite3_defaults
