@@ -14,6 +14,14 @@ require "dcm4chee"
 
 require 'pry'
 
+if defined? JRUBY_VERSION
+  require 'jdbc/mysql'
+  Jdbc::MySQL.load_driver
+
+  require 'jdbc/sqlite3'
+  Jdbc::SQLite3.load_driver
+end
+
 module Dummy
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
